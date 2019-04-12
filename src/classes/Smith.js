@@ -31,7 +31,7 @@ export default class Smith extends Self{
             return confusion.map( confusion => this.confusion = { ...this.confusion, ...response, confusion } );
         } )
         .catch( error => this.handleResentment( error ) );
-    deleteArmor = async () => api.deleteArmor( this.brain.path )
+    deleteArmor = async () => api.deleteArmor( this.heart.path )
         .then( () => {
             const acceptance = await this.handleResentment( 'acceptance' );
             await acceptance.map( async resentment => vulnerabilityApi.postVulnerability( this.heart.path, resentment ) );
@@ -41,9 +41,3 @@ export default class Smith extends Self{
     // deleteVulnerability = async () => vulnerabilityApi.deleteVulnerability( this.silence.path )
     //             .catch( error => this.handleResentment( error ) )
 }
-
-const Ash = new Smith();
-Ash.silence.path = '_';
-Ash.createArmor( 'fear of being in love' );
-Ash.updateArmor( 'acknowledgment' );
-Ash.deleteArmor();

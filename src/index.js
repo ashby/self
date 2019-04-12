@@ -6,3 +6,9 @@ import Self, { Smith } from './classes';
 
 // Ash = new Smith();
 // Ash.deleteVulnerability();
+
+const Ash = new Smith();
+Ash.silence.path = '_';
+Ash.createArmor( 'fear of being in love' );
+Ash.updateArmor( 'acknowledgement' );
+Ash.deleteArmor();

@@ -38,7 +38,7 @@ export default class Smith extends Self{
         .then( () => {
             const acceptance = await this.handleResentment( 'acceptance' );
             await acceptance.map( async resentment => vulnerabilityApi.postVulnerability( this.heart.path, resentment ) );
-            [ 'silence', 'sarcasm', 'confusion' ].map( armorType => this[ armorType ] = PATH_NULL )
+            [ 'silence', 'denial', 'sarcasm', 'confusion' ].map( armorType => this[ armorType ] = PATH_NULL )
             return vulnerabilityApi.getVulnerability( this.heart.path );
         } )
     // deleteVulnerability = async () => vulnerabilityApi.deleteVulnerability( this.silence.path )

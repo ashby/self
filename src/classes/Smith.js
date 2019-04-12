@@ -6,6 +6,7 @@ const PATH_NULL = { path: null };
 
 export default class Smith extends Self{
     silence = PATH_NULL
+    denial = PATH_NULL
     sarcasm = PATH_NULL
     confusion = PATH_NULL
     handleResentment = async resentment => {
@@ -21,16 +22,18 @@ export default class Smith extends Self{
                     .then( response => this.createSelfPity( response ) );
         }
     }
-    getArmor = async () => api.getArmor( this.skin.path );
+    getArmor = async () => api.getArmor( this.skin.path )
+        .then( response => Promise.reject( response ) )
+        .catch( error => this.sarcasm = handleResentment( error ) )
     createArmor = async armor => api.postArmor( this.silence.path, armor )
-        .then( response => { this.sarcasm = response; Promise.Reject( this.sarcasm) } )
-        .catch( error => this.handleResentment( error ) );
+        .then( response => Promise.Reject( response ) )
+        .catch( error => this.denial = this.handleResentment( error ) );
     updateArmor = async armor => api.putArmor( this.brain.path, armor )
-        .then( async response => { 
+        .then( async () => { 
             const confusion = await Promise.all( [ this.getSelfPity(), this.getAnger() ] );
-            return confusion.map( confusion => this.confusion = { ...this.confusion, ...response, confusion } );
+            Promise.reject( confusion );
         } )
-        .catch( error => this.handleResentment( error ) );
+        .catch( error => this.confusion = this.handleResentment( error ) );
     deleteArmor = async () => api.deleteArmor( this.heart.path )
         .then( () => {
             const acceptance = await this.handleResentment( 'acceptance' );

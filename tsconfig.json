@@ -11,7 +11,8 @@
         "paths": {
             "src/*": [ "src/*" ],
             "api/*": [ "src/api/*" ],
-            "classes/*": [ "src/classes/*" ]
+            "classes/*": [ "src/classes/*" ],
+            "app-test-utils": [ "src/__mocks__/app-test-utils.ts" ]
         },
         "allowSyntheticDefaultImports": true,
         "preserveSymlinks": true

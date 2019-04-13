@@ -1,12 +1,19 @@
 import Self from './';
 import * as api from 'src/api';
-import { EMPTY_ACTION } from 'src/constants';
+import { 
+    EMPTY_SHIELD,
+    RESENTMENT_TYPE_ANGER,
+    RESENTMENT_TYPE_FEAR,
+    RESENTMENT_TYPE_SADNESS,
+    RESENTMENT_TYPE_ACKNOWLEDGE 
+} from 'src/constants';
+import * as union from 'lodash/union';
 
 export default class Smith extends Self {
-    silence = { ...EMPTY_ACTION }
-    denial = { ...EMPTY_ACTION }
-    sarcasm = { ...EMPTY_ACTION }
-    confusion = { ...EMPTY_ACTION }
+    silence = { ...EMPTY_SHIELD }
+    denial = { ...EMPTY_SHIELD }
+    sarcasm = { ...EMPTY_SHIELD }
+    confusion = { ...EMPTY_SHIELD }
     get smith() { return this.seeShields() }
     seeShields = () => ( { 
         silence: this.silence,
@@ -14,26 +21,34 @@ export default class Smith extends Self {
         sarcasm: this.sarcasm,
         confusion: this.confusion
     } )
+    private handleArmor = async ( shield, armor, type ) => {
+        await this.handleResentment( type, armor );
+        this[ shield ].armor = union( this[ shield ].armor, armor );
+        return Promise.resolve( this[ shield ].armor );
+    }
     getArmor = async () => api.getArmor( this.path )
         .then( response => Promise.reject( response ) )
-        .catch( error => this.sarcasm.armor = this.handleResentment( error ) )
+        .catch( async ( error ) => this.handleArmor( 'sarcasm', error, RESENTMENT_TYPE_ANGER ) )
     createArmor = async armor => api.postArmor( this.route, armor )
         .then( response => Promise.reject( response ) )
-        .catch( error => this.denial.armor = this.handleResentment( error ) );
+        .catch( error => this.handleArmor( 'silence', error, RESENTMENT_TYPE_FEAR ) )
     updateArmor = async armor => api.putArmor( this.route, armor )
-        .then( async () => {
-            let selfPityPromise = this.getSelfPity();
-            let angerPromise = this.getAnger();
-            const [ selfPity, anger ] = await Promise.all( [ selfPityPromise, angerPromise ] );
-            Promise.reject( [ selfPity, anger ] );
+        .then( async ( response ) => {
+            const armor = await this.handleArmor( 'denial', response, RESENTMENT_TYPE_SADNESS )
+            return Promise.reject( armor );
         } )
-        .catch( errors => this.confusion.armor = errors.map( error => this.handleResentment( error ) ) )
+        .catch( error => this.handleArmor( 'confusion', error, RESENTMENT_TYPE_SADNESS ) ) 
     removeArmor = async () => api.deleteArmor( this.route )
         .then( async () => {
-            const acceptance = await this.handleResentment( 'acceptance' );
-            await acceptance.map( async resentment => api.postVulnerability( this.route, resentment ) );
-            [ 'silence', 'denial', 'sarcasm', 'confusion' ].map( armorType => this[ armorType ] = { ...EMPTY_ACTION } )
-            return api.getVulnerability( this.path );
+            const parts = this.seeParts();
+            const partKeys = Object.keys( parts );
+            const acknowldegement = await this.handleResentment( RESENTMENT_TYPE_ACKNOWLEDGE );
+            if ( acknowldegement ) {
+                partKeys.map( async part => await api.postVulnerability( this.route, part ) );      
+                [ 'silence', 'denial', 'sarcasm', 'confusion' ].map( armorType => this[ armorType ] = { ...EMPTY_SHIELD } );
+                const vulnerability = await api.getVulnerability( this.path );
+                return Promise.resolve( vulnerability );
+            }
         } )
         .catch( error => this.handleResentment( error ) )
 }

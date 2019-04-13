@@ -1,5 +1,5 @@
 export const EMPTY_PART = { anger: [], selfPity: [] };
-export const EMPTY_SHIELD = { armor: {} };
+export const EMPTY_SHIELD = { armor: [] };
 export const EMPTY_VIRTUE = { vulnerability: [] };
 export const EMPTY_CONSTRUCT = { boundary: {} };
 

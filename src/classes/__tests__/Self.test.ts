@@ -1,13 +1,13 @@
 import Self from '../Self';
 import * as api from 'src/api';
 import { 
-    EMPTY_PART,
     RESENTMENT_TYPE_DEFAULT,
     RESENTMENT_TYPE_ACKNOWLEDGE,
     RESENTMENT_TYPE_ANGER, 
     RESENTMENT_TYPE_SADNESS, 
     RESENTMENT_TYPE_FEAR 
 } from 'src/constants';
+import { expectEmptyPartsExcept } from 'app-test-utils';
 
 const OLD_ANGER = 'everything';
 const ANGER = 'unrequited';
@@ -19,17 +19,10 @@ const NEW_SELF_PITY = 'lonely';
 
 const RESENTMENT = 'in MN';
 
-const expectEmptyPartsExcept = ( fullParts = [], partKeys = [], parts = {} ) => {
-    partKeys = partKeys.filter( part => !fullParts.includes( part ) );
-    partKeys.forEach( part => expect( parts[ part ] ).toEqual( EMPTY_PART ) );
-};
-
 describe( 'Self ::', () => {
-    let Ash, parts, partResentment;
+    let Ash, partResentment;
     beforeEach( () => {
         Ash = new Self();
-        parts = Ash.seeParts();
-        partKeys = Object.keys( parts );
         partResentment = [ RESENTMENT ];
         spyOn( api, 'putAnger' ).and.returnValue( Promise.resolve( partResentment ) );
         spyOn( api, 'deleteAnger' ).and.returnValue( Promise.resolve() );

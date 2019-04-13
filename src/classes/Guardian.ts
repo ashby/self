@@ -14,12 +14,12 @@ export default class Guardian extends Smith {
         tower: this.tower
     } )
     public buildBoundary = async ( boundary ) => {
-        await this.updateArmor( boundary );
+        const armor = await this.updateArmor( boundary );
         boundary = await this.createBoundary( boundary );
         return Promise.resolve( boundary );
     }
     handleBoundary = async ( construct, boundary ) => {
-        this[ construct ].boundary = union( this[ construct ].boundary, boundary ); 
+        this[ construct ].boundary = union( this[ construct ].boundary, boundary );
         return Promise.resolve( this[ construct ].boundary ); 
     }
     getBoundary = async () => api.getBoundary( this.route )
@@ -29,6 +29,9 @@ export default class Guardian extends Smith {
     updateBoundary = async boundary => api.putBoundary( this.route, boundary )
                         .then( response => this.handleBoundary( 'wall', response ) )
     removeBoundary = async () => api.deleteBoundary( this.route )
-                        .then( () => [ 'gate', 'wall', 'tower' ].map( construct => this[ construct ].boundary = { ...EMPTY_CONSTRUCT }.boundary ) )
+                        .then( () => {
+                            const shields = [ 'gate', 'wall', 'tower' ].map( construct => this[ construct ].boundary = { ...EMPTY_CONSTRUCT }.boundary );
+                            Promise.resolve( shields ); 
+                        } )
                         .then( () => this.removeArmor() )                      
 }

@@ -18,9 +18,10 @@ export default class Seeker extends Self {
         this[ virtue ].vulnerability = union( this[ virtue ].vulnerability, vulnerability );
         return Promise.resolve( this[ virtue ].vulnerability ); 
     }
-    private createGuard = error => {
+    private summonGuard = async ( error ) => {
         const Guard = new Guardian();
-        return Guard.buildBoundary( error );
+        await Guard.buildBoundary( error );
+        return Promise.resolve( Guard );
     }
     getVulnerability = async () => api.getVulnerability( this.route )
                         .then( response => this.handleVulnerability( 'mind', response ) )
@@ -32,5 +33,5 @@ export default class Seeker extends Self {
                         .then( () => 
                             [ 'mind', 'soul', 'love' ].map( part => this[ part ].vulnerability = { ...EMPTY_VIRTUE }.vulnerability ) 
                         )
-                        .catch( async error => this.createGuard( error ) )                          
+                        .catch( async error => await this.summonGuard( error ) )                    
 }

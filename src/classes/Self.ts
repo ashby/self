@@ -55,9 +55,9 @@ export default class Self {
     getAnger = async () => api.getAnger( this.route )
                         .then( response => this.handleAnger( 'brain', response ) )
     createAnger = async anger => api.postAnger( this.route, anger )
-                        .then( response => this.handleAnger( 'gut', response )  )
+                        .then( response => this.handleAnger( 'gut', response ) )
     updateAnger = async anger => api.putAnger( this.route, anger )
-                        .then( response => this.handleAnger( 'mouth', response )  )
+                        .then( response => this.handleAnger( 'mouth', response ) )
     removeAnger = async () => api.deleteAnger( this.route )
                         .then( () => {
                             const parts = [ 'brain', 'gut', 'mouth' ].map( part => this[ part ].anger = { ...EMPTY_PART }.anger );

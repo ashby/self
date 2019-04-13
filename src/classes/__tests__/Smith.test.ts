@@ -1,6 +1,7 @@
 import Smith from '../Smith';
 import * as api from 'src/api';
 import { expectEmptyPartsExcept, expectEmptyShieldsExcept } from 'app-test-utils';
+import { RESENTMENT_TYPE_SADNESS } from 'src/constants';
 
 const OLD_ARMOR = 'your mom';
 const ARMOR = '_';
@@ -43,7 +44,7 @@ describe( 'Smith armor::', () => {{}
         spyOn( api, 'putAnger' ).and.returnValue( Promise.resolve( denialArmor ) );
         spyOn( api, 'putSelfPity' ).and.returnValue( Promise.resolve( denialArmor ) );
         await Ash.createArmor( ARMOR );
-        await Ash.updateArmor( NEW_ARMOR );
+        await Ash.updateArmor( NEW_ARMOR, RESENTMENT_TYPE_SADNESS );
         expect( api.putArmor ).toBeCalled();
         expect( Ash.silence.armor ).toEqual( silenceArmor );
         expect( Ash.denial.armor ).toEqual( denialArmor );
@@ -59,7 +60,7 @@ describe( 'Smith armor::', () => {{}
         spyOn( api, 'postVulnerability' ).and.returnValue( Promise.resolve() );
         spyOn( api, 'getVulnerability' ).and.returnValue( Promise.resolve( sarcasmArmor ) );
         await Ash.createArmor( ARMOR );
-        await Ash.updateArmor( NEW_ARMOR );
+        await Ash.updateArmor( NEW_ARMOR, RESENTMENT_TYPE_SADNESS );
         await Ash.getArmor();
         expect( Ash.silence.armor ).toEqual( silenceArmor );
         expect( Ash.denial.armor ).toEqual( denialArmor );

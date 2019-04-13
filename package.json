@@ -7,6 +7,10 @@
   "author": "ashbyutting@gmail.com",
   "license": "MIT",
   "private": false,
+  "scripts": {
+    "test": "jest",
+    "test:coverage": "jest --coverage"
+  },
   "devDependencies": {
     "@types/jest": "^23.3.9",
     "@types/react": "^16.4.18",

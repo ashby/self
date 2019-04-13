@@ -1,29 +1,43 @@
-import * as api from '../api';
+import * as api from 'src/api';
+import { EMPTY_PART } from 'src/constants';
+
 export default class Self {
-    brain = { path: undefined }
-    face = { path: undefined }
-    heart = { path: undefined }
-    sternum = { path: undefined }
-    gut = { path: undefined }
-    skin = { path: undefined }
-    constructor() {
-        console.log( this );
-    }
-    getAnger = async () => api.getAnger( this.brain.path )
-                        .then( response => this.brain = { ...this.brain, ...response.json } )
-    createAnger = async fear => api.postAnger( this.gut.path, fear )
-                        .then( response => this.heart = { ...this.heart, ...response.json } )
-    updateAnger = async fear => api.putAnger( this.heart.path, fear )
-                        .then( response => this.brain = { ...this.brain, ...response.json } )
-    removeAnger = async () => apiDeleteAnger( this.heart.path )
-                        .then( () => [ 'brain', 'heart', 'gut' ].map( organ => this[ organ ] = { path: undefined } ) )
-    getSelfPity = async () => api.getSelfPity( this.brain.path )
-                        .then( response => this.brain = { ...this.brain, ...response.json } )
-    createSelfPity = async sadness => api.postSelfPity( this.sternum.path, sadness )
-                        .then( response => this.face = { ...this.face, ...response.json } )
-    updateSelfPity = async sadness => api.putSelfPity( this.face.path, sadness )
-                        .then( response => this.brain = { ...this.brain, ...response.json } )
-    removeSelfPity = async () => api.deletePity( this.face.path )
-                        .then( () => [ 'brain', 'sternum', 'face' ].map( organ => this[ organ ] = { path: undefined } ) )                       
+    route = undefined
+    brain = { ...EMPTY_PART }
+    face = { ...EMPTY_PART }
+    mouth = { ...EMPTY_PART }
+    heart = { ...EMPTY_PART }
+    sternum = { ...EMPTY_PART }
+    gut = { ...EMPTY_PART }
+    skin = { ...EMPTY_PART }
+    get self() { return this.seeParts() }
+    set path( route ) { this.route = route }
+    seeParts = () => ( { 
+        brain: this.brain,
+        face: this.face,
+        mouth: this.mouth,
+        heart: this.heart,
+        sternum: this.sternum,
+        gut: this.gut,
+        skin: this.skin 
+    } )
+    setAnger( part, anger ) { this[ part ].anger = this[ part ].anger.concat( anger ) }
+    getAnger = async () => api.getAnger( this.route )
+                        .then( response => this.setAnger( 'brain', response ) )
+    createAnger = async anger => api.postAnger( this.route, anger )
+                        .then( response => this.setAnger( 'gut', response )  )
+    updateAnger = async anger => api.putAnger( this.route, anger )
+                        .then( response => this.setAnger( 'mouth', response )  )
+    removeAnger = async () => api.deleteAnger( this.route )
+                        .then( () => [ 'brain', 'gut', 'mouth' ].map( part => this[ part ].anger = { ...EMPTY_PART }.anger ) )
+    setSelfPity( part, selfPity ) { this[ part ].anger = this[ part ].anger.concat( selfPity ) }
+    getSelfPity = async () => api.getSelfPity( this.route )
+                        .then( response => this.setSelfPity( 'brain', response ) )
+    createSelfPity = async selfPity => api.postSelfPity( this.route, selfPity )
+                        .then( response => this.setSelfPity( 'sternum', response ) )
+    updateSelfPity = async selfPity => api.putSelfPity( this.route, selfPity )
+                        .then( response => this.setSelfPity( 'face', response ) )
+    removeSelfPity = async () => api.deleteSelfPity( this.route )
+                        .then( () => [ 'brain', 'sternum', 'face' ].map( part => this[ part ].selfPity = { ...EMPTY_PART }.selfPity ) )                       
                            
 }

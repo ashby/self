@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "outDir": "./wp-out/",
+        "sourceMap": true,
+        "noImplicitAny": false,
+        "module": "commonjs",
+        "target": "es5",
+        "jsx": "react",
+        "lib": [ "es2015", "dom", "es7" ],
+        "baseUrl": ".",
+        "paths": {
+            "src/*": [ "src/*" ],
+            "api/*": [ "src/api/*" ],
+            "classes/*": [ "src/classes/*" ]
+        },
+        "allowSyntheticDefaultImports": true,
+        "preserveSymlinks": true
+    },
+    "include": [ "src/**/*" ],
+    "exclude": [ "node_modules" ]
+}

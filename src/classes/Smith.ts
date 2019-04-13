@@ -1,18 +1,18 @@
-import Self from './Self';
+import Self from './';
 import * as api from '../api/armor';
 import * as vulnerabilityApi from '../api/vulnerability';
 
-const PATH_NULL = { path: null };
+const EMPTY_SMITH = { path: null, armor: {} };
 
-export default class Smith extends Self{
-    silence = PATH_NULL
-    denial = PATH_NULL
-    sarcasm = PATH_NULL
-    confusion = PATH_NULL
+export default class Smith extends Self {
+    silence = EMPTY_SMITH
+    denial = EMPTY_SMITH
+    sarcasm = EMPTY_SMITH
+    confusion = EMPTY_SMITH
     handleResentment = async resentment => {
         switch( resentment ) {
             case 'acceptance':
-                return Promise.all( [ this.deleteSelfPity(), this.deleteAnger() ] );
+                return Promise.all( [ this.removeSelfPity(), this.removeAnger() ] );
             case 'sadness':
             case 'fear':
                 return this.createSelfPity( resentment );
@@ -24,21 +24,23 @@ export default class Smith extends Self{
     }
     getArmor = async () => api.getArmor( this.skin.path )
         .then( response => Promise.reject( response ) )
-        .catch( error => this.sarcasm = handleResentment( error ) )
+        .catch( error => this.sarcasm.armor = this.handleResentment( error ) )
     createArmor = async armor => api.postArmor( this.silence.path, armor )
-        .then( response => Promise.Reject( response ) )
-        .catch( error => this.denial = this.handleResentment( error ) );
+        .then( response => Promise.reject( response ) )
+        .catch( error => this.denial.armor = this.handleResentment( error ) );
     updateArmor = async armor => api.putArmor( this.brain.path, armor )
-        .then( async () => { 
-            const confusion = await Promise.all( [ this.getSelfPity(), this.getAnger() ] );
-            Promise.reject( confusion );
+        .then( async () => {
+            let selfPityPromise = this.getSelfPity();
+            let angerPromise = this.getAnger();
+            const [ selfPity, anger ] = await Promise.all( [ selfPityPromise, angerPromise ] );
+            Promise.reject( [ selfPity, anger ] );
         } )
-        .catch( error => this.confusion = this.handleResentment( error ) );
+        .catch( errors => this.confusion.armor = errors.map( error => this.handleResentment( error ) ) )
     deleteArmor = async () => api.deleteArmor( this.heart.path )
-        .then( () => {
+        .then( async () => {
             const acceptance = await this.handleResentment( 'acceptance' );
             await acceptance.map( async resentment => vulnerabilityApi.postVulnerability( this.heart.path, resentment ) );
-            [ 'silence', 'denial', 'sarcasm', 'confusion' ].map( armorType => this[ armorType ] = PATH_NULL )
+            [ 'silence', 'denial', 'sarcasm', 'confusion' ].map( armorType => this[ armorType ] = EMPTY_SMITH )
             return vulnerabilityApi.getVulnerability( this.heart.path );
         } )
     // deleteVulnerability = async () => vulnerabilityApi.deleteVulnerability( this.silence.path )

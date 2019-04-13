@@ -30,7 +30,8 @@ export default class Guardian extends Smith {
                         .then( response => this.handleBoundary( 'wall', response ) )
     removeBoundary = async () => api.deleteBoundary( this.route )
                         .then( () => {
-                            const shields = [ 'gate', 'wall', 'tower' ].map( construct => this[ construct ].boundary = { ...EMPTY_CONSTRUCT }.boundary );
+                            const shields = [ 'gate', 'wall', 'tower' ]
+                                .map( construct => this[ construct ].boundary = { ...EMPTY_CONSTRUCT }.boundary );
                             Promise.resolve( shields ); 
                         } )
                         .then( () => this.removeArmor() )                      

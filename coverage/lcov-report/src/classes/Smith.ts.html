@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/classes/Smith.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">All files</a> / <a href="index.html">src/classes</a> Smith.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">94.12% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>48/51</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>5/5</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">88.89% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>16/18</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">94.44% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>34/36</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55</td><td class="line-coverage quiet"><span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-yes">19x</span>
+<span class="cline-any cline-yes">19x</span>
+<span class="cline-any cline-yes">19x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">28x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import Self from './';
+import * as api from 'src/api';
+import { 
+    EMPTY_SHIELD,
+    RESENTMENT_TYPE_ANGER,
+    RESENTMENT_TYPE_FEAR,
+    RESENTMENT_TYPE_SADNESS,
+    RESENTMENT_TYPE_ACKNOWLEDGE 
+} from 'src/constants';
+import * as union from 'lodash/union';
+&nbsp;
+export default class Smith extends Self {
+    silence = { ...EMPTY_SHIELD }
+    denial = { ...EMPTY_SHIELD }
+    sarcasm = { ...EMPTY_SHIELD }
+    confusion = { ...EMPTY_SHIELD }
+<span class="fstat-no" title="function not covered" >    get smith() { <span class="cstat-no" title="statement not covered" ></span>return this.seeShields() </span>}
+    seeShields = () =&gt; ( { 
+        silence: this.silence,
+        denial: this.denial,
+        sarcasm: this.sarcasm,
+        confusion: this.confusion
+    } )
+    private handleArmor = async ( shield, armor, type ) =&gt; {
+        await this.handleResentment( type, armor );
+        this[ shield ].armor = union( this[ shield ].armor, armor );
+        return Promise.resolve( this[ shield ].armor );
+    }
+    getArmor = async () =&gt; api.getArmor( this.path )
+        .then( response =&gt; Promise.reject( response ) )
+        .catch( async ( error ) =&gt; this.handleArmor( 'sarcasm', error, RESENTMENT_TYPE_ANGER ) )
+    createArmor = async armor =&gt; api.postArmor( this.route, armor )
+        .then( response =&gt; Promise.reject( response ) )
+        .catch( error =&gt; this.handleArmor( 'silence', error, RESENTMENT_TYPE_FEAR ) )
+    updateArmor = async ( armor, type = '' ) =&gt; api.putArmor( this.route, armor )
+        .then( async ( response ) =&gt; {
+            const armor = await this.handleArmor( 'denial', response, type )
+            return Promise.reject( armor );
+        } )
+        .catch( error =&gt; this.handleArmor( 'confusion', error, type ) ) 
+    removeArmor = async () =&gt; api.deleteArmor( this.route )
+        .then( async () =&gt; {
+            const parts = this.seeParts();
+            const partKeys = Object.keys( parts );
+            const acknowldegement = await this.handleResentment( RESENTMENT_TYPE_ACKNOWLEDGE );
+            if ( <span class="cstat-no" title="statement not covered" >acknowldegement </span>) {
+                partKeys.map( async part =&gt; await api.postVulnerability( this.route, part ) );      
+                [ 'silence', 'denial', 'sarcasm', 'confusion' ].map( armorType =&gt; this[ armorType ] = { ...EMPTY_SHIELD } );
+                const vulnerability = await api.getVulnerability( this.path );
+                return Promise.resolve( vulnerability );
+            }
+        } )
+        .catch( <span class="fstat-no" title="function not covered" >error =&gt; <span class="cstat-no" title="statement not covered" >this.handleResentment( error ) </span>)</span>
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sat Apr 13 2019 14:37:35 GMT-0500 (Central Daylight Time)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

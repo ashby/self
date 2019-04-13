@@ -1,7 +1,10 @@
 module.exports = {
     collectCoverageFrom: [
         'src/**/*.ts',
-        'src/**/*.tsx'
+        'src/**/*.tsx',
+        '!**/__mocks__/**/*',
+        '!**/__fixtures__/**/*',
+        '!**/__tests__/**/*'
     ],
     transform: {
         "^.+\\.tsx?$": "ts-jest"

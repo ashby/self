@@ -11,7 +11,7 @@ const expectEmptyPartsExcept = ( fullParts = [], partKeys = [], parts = {} ) => 
     partKeys.forEach( part => expect( parts[ part ] ).toEqual( EMPTY_PART ) );
 };
 
-describe( 'Self anger::', () => {
+describe( 'Self anger ::', () => {
     let Ash, parts, partKeys, brainAnger, gutAnger, mouthAnger, handlePartsExceptions;
     beforeEach( () => {
         Ash = new Self();
@@ -59,7 +59,7 @@ describe( 'Self anger::', () => {
         handlePartsExceptions( [ 'gut', 'mouth' ] );
         expect.assertions( 3 + partKeys.length - 2 );
     } );
-    it( 'deletes anger from brain, gut and mouth', async () => {
+    it( 'removes anger from brain, gut and mouth', async () => {
         await Ash.createAnger( ANGER );
         await Ash.updateAnger( NEW_ANGER );
         await Ash.getAnger();
@@ -77,7 +77,7 @@ const OLD_SELF_PITY = 'in MN';
 const SELF_PITY = 'can\'t leave';
 const NEW_SELF_PITY = 'lonely';
 
-describe( 'Self self pity::', () => {
+describe( 'Self self-pity ::', () => {
     let Ash, parts, partKeys, brainSelfPity, sternumSelfPity, faceSelfPity, handlePartsExceptions;
     beforeEach( () => {
         Ash = new Self();
@@ -92,7 +92,7 @@ describe( 'Self self pity::', () => {
         spyOn( api, 'deleteSelfPity' ).and.returnValue( Promise.resolve( [] ) );
         handlePartsExceptions = ( fullParts ) => expectEmptyPartsExcept( fullParts, partKeys, parts );
     } )
-    it( 'can handle self pity', async () => {
+    it( 'can handle self-pity', async () => {
         let selfPity;
         selfPity = await Ash.createSelfPity( ANGER );
         expect( selfPity ).toEqual( sternumSelfPity );
@@ -102,21 +102,21 @@ describe( 'Self self pity::', () => {
         expect( selfPity ).toEqual( brainSelfPity );
         expect.assertions( 3 );
     } );
-    it( 'gets self pity from the brain', async () => {
+    it( 'gets self-pity from the brain', async () => {
         await Ash.getSelfPity();
         expect( api.getSelfPity ).toBeCalled();
         expect( Ash.brain.selfPity ).toEqual( brainSelfPity );
         handlePartsExceptions( [ 'brain' ] );
         expect.assertions( 2 + partKeys.length - 1 );
     } );
-    it( 'creates self pity in the sternum', async () => {
+    it( 'creates self-pity in the sternum', async () => {
         await Ash.createSelfPity( SELF_PITY );
         expect( api.postSelfPity ).toBeCalled(); 
         expect( Ash.sternum.selfPity ).toEqual( sternumSelfPity );
         handlePartsExceptions( [ 'sternum' ] );
         expect.assertions( 2 + partKeys.length - 1 );
     } );
-    it( 'updates self pity in the face', async () => {
+    it( 'updates self-pity in the face', async () => {
         await Ash.createSelfPity( SELF_PITY );
         await Ash.updateSelfPity( NEW_SELF_PITY );
         expect( api.putSelfPity ).toBeCalled();
@@ -125,7 +125,7 @@ describe( 'Self self pity::', () => {
         handlePartsExceptions( [ 'sternum', 'face' ] );
         expect.assertions( 3 + partKeys.length - 2 );
     } );
-    it( 'deletes self pity from brain, sternum and face', async () => {
+    it( 'removes self-pity from brain, sternum and face', async () => {
         await Ash.createSelfPity( SELF_PITY );
         await Ash.updateSelfPity( NEW_SELF_PITY );
         await Ash.getSelfPity();

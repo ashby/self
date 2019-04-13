@@ -30,10 +30,10 @@ export default class Smith extends Self {
     getArmor = async () => api.getArmor( this.path )
         .then( response => Promise.reject( response ) )
         .catch( error => this.sarcasm.armor = this.handleResentment( error ) )
-    createArmor = async armor => api.postArmor( this.path, armor )
+    createArmor = async armor => api.postArmor( this.route, armor )
         .then( response => Promise.reject( response ) )
         .catch( error => this.denial.armor = this.handleResentment( error ) );
-    updateArmor = async armor => api.putArmor( this.path, armor )
+    updateArmor = async armor => api.putArmor( this.route, armor )
         .then( async () => {
             let selfPityPromise = this.getSelfPity();
             let angerPromise = this.getAnger();
@@ -41,10 +41,10 @@ export default class Smith extends Self {
             Promise.reject( [ selfPity, anger ] );
         } )
         .catch( errors => this.confusion.armor = errors.map( error => this.handleResentment( error ) ) )
-    deleteArmor = async () => api.deleteArmor( this.path )
+    deleteArmor = async () => api.deleteArmor( this.route )
         .then( async () => {
             const acceptance = await this.handleResentment( 'acceptance' );
-            await acceptance.map( async resentment => api.postVulnerability( this.path, resentment ) );
+            await acceptance.map( async resentment => api.postVulnerability( this.route, resentment ) );
             [ 'silence', 'denial', 'sarcasm', 'confusion' ].map( armorType => this[ armorType ] = { ...EMPTY_ACTION } )
             return api.getVulnerability( this.path );
         } )

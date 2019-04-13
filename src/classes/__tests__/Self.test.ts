@@ -1,15 +1,69 @@
 import Self from '../Self';
 import * as api from 'src/api';
-import { EMPTY_PART } from 'src/constants';
+import { 
+    EMPTY_PART,
+    RESENTMENT_TYPE_DEFAULT,
+    RESENTMENT_TYPE_ACKNOWLEDGE,
+    RESENTMENT_TYPE_ANGER, 
+    RESENTMENT_TYPE_SADNESS, 
+    RESENTMENT_TYPE_FEAR 
+} from 'src/constants';
 
 const OLD_ANGER = 'everything';
 const ANGER = 'unrequited';
 const NEW_ANGER = 'acknowledgement';
 
+const OLD_SELF_PITY = 'in MN';
+const SELF_PITY = 'can\'t leave';
+const NEW_SELF_PITY = 'lonely';
+
+const RESENTMENT = 'in MN';
+
 const expectEmptyPartsExcept = ( fullParts = [], partKeys = [], parts = {} ) => {
     partKeys = partKeys.filter( part => !fullParts.includes( part ) );
     partKeys.forEach( part => expect( parts[ part ] ).toEqual( EMPTY_PART ) );
 };
+
+describe( 'Self ::', () => {
+    let Ash, parts, partResentment;
+    beforeEach( () => {
+        Ash = new Self();
+        parts = Ash.seeParts();
+        partKeys = Object.keys( parts );
+        partResentment = [ RESENTMENT ];
+        spyOn( api, 'putAnger' ).and.returnValue( Promise.resolve( partResentment ) );
+        spyOn( api, 'deleteAnger' ).and.returnValue( Promise.resolve() );
+        spyOn( api, 'putSelfPity' ).and.returnValue( Promise.resolve( partResentment ) );
+        spyOn( api, 'deleteSelfPity' ).and.returnValue( Promise.resolve() );
+    } );
+    it( 'can handle default resentment', async () => {
+        const resentment = await Ash.handleResentment( RESENTMENT_TYPE_DEFAULT, RESENTMENT );
+        expect( resentment ).toEqual( { anger: partResentment, selfPity: partResentment } );
+        expect( Ash.mouth.anger ).toEqual( partResentment );
+        expect( Ash.face.selfPity ).toEqual( partResentment );
+    } );
+    it( 'can handle anger resentment', async () => {
+        const resentment = await Ash.handleResentment( RESENTMENT_TYPE_ANGER, RESENTMENT );
+        expect( resentment ).toEqual( { anger: partResentment, selfPity: partResentment } );
+        expect( Ash.mouth.anger ).toEqual( partResentment );
+        expect( Ash.face.selfPity ).toEqual( partResentment );
+    } );
+    it( 'can handle sadness resentment', async () => {
+        const resentment = await Ash.handleResentment( RESENTMENT_TYPE_SADNESS, RESENTMENT );
+        expect( resentment ).toEqual( { anger: [], selfPity: partResentment } );
+        expect( Ash.face.selfPity ).toEqual( partResentment );
+    } );
+    it( 'can handle fear resentment', async () => {
+        const resentment = await Ash.handleResentment( RESENTMENT_TYPE_FEAR, RESENTMENT );
+        expect( resentment ).toEqual( { anger: [], selfPity: partResentment } );
+        expect( Ash.face.selfPity ).toEqual( partResentment );
+    } );
+    it( 'can acknowledge resentment', async () => {
+        await Ash.handleResentment( RESENTMENT_TYPE_ACKNOWLEDGE );
+        expect( Ash.mouth.anger ).toEqual( [] );
+        expect( Ash.face.selfPity ).toEqual( [] );
+    } );
+} );
 
 describe( 'Self anger ::', () => {
     let Ash, parts, partKeys, brainAnger, gutAnger, mouthAnger, handlePartsExceptions;
@@ -72,10 +126,6 @@ describe( 'Self anger ::', () => {
         expect.assertions( 4 + partKeys.length );
     } );
 } );
-
-const OLD_SELF_PITY = 'in MN';
-const SELF_PITY = 'can\'t leave';
-const NEW_SELF_PITY = 'lonely';
 
 describe( 'Self self-pity ::', () => {
     let Ash, parts, partKeys, brainSelfPity, sternumSelfPity, faceSelfPity, handlePartsExceptions;

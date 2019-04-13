@@ -7,26 +7,13 @@ export default class Smith extends Self {
     denial = { ...EMPTY_ACTION }
     sarcasm = { ...EMPTY_ACTION }
     confusion = { ...EMPTY_ACTION }
-    get smith() { return this.seeActions() }
-    seeActions = () => ( { 
+    get smith() { return this.seeShields() }
+    seeShields = () => ( { 
         silence: this.silence,
         denial: this.denial,
         sarcasm: this.sarcasm,
         confusion: this.confusion
     } )
-    private handleResentment = async resentment => {
-        switch( resentment ) {
-            case 'acceptance':
-                return Promise.all( [ this.removeSelfPity(), this.removeAnger() ] );
-            case 'sadness':
-            case 'fear':
-                return this.createSelfPity( resentment );
-            case 'anger':
-            default:
-                return this.createAnger( resentment )
-                    .then( response => this.createSelfPity( response ) );
-        }
-    }
     getArmor = async () => api.getArmor( this.path )
         .then( response => Promise.reject( response ) )
         .catch( error => this.sarcasm.armor = this.handleResentment( error ) )
@@ -41,13 +28,12 @@ export default class Smith extends Self {
             Promise.reject( [ selfPity, anger ] );
         } )
         .catch( errors => this.confusion.armor = errors.map( error => this.handleResentment( error ) ) )
-    deleteArmor = async () => api.deleteArmor( this.route )
+    removeArmor = async () => api.deleteArmor( this.route )
         .then( async () => {
             const acceptance = await this.handleResentment( 'acceptance' );
             await acceptance.map( async resentment => api.postVulnerability( this.route, resentment ) );
             [ 'silence', 'denial', 'sarcasm', 'confusion' ].map( armorType => this[ armorType ] = { ...EMPTY_ACTION } )
             return api.getVulnerability( this.path );
         } )
-    // deleteVulnerability = async () => api.deleteVulnerability( this.silence.path )
-    //             .catch( error => this.handleResentment( error ) )
+        .catch( error => this.handleResentment( error ) )
 }

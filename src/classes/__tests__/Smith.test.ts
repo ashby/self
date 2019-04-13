@@ -22,6 +22,18 @@ describe( 'Smith armor::', () => {{}
         spyOn( api, 'deleteArmor' ).and.returnValue( Promise.resolve( [] ) );
         handleShieldsExceptions = ( fullShields ) => expectEmptyShieldsExcept( fullShields, shieldKeys, shields );
     } )
+    it( 'can handle armor', async () => {
+        spyOn( api, 'putAnger' ).and.returnValue( Promise.resolve( denialArmor ) );
+        spyOn( api, 'putSelfPity' ).and.returnValue( Promise.resolve( denialArmor ) );
+        let armor;
+        armor = await Ash.createArmor( ARMOR );
+        expect( armor ).toEqual( silenceArmor );
+        armor = await Ash.updateArmor( NEW_ARMOR, RESENTMENT_TYPE_SADNESS );
+        expect( armor ).toEqual( denialArmor );
+        armor = await Ash.getArmor();
+        expect( armor ).toEqual( sarcasmArmor );
+        expect.assertions( 3 );
+    } )
     it( 'gets armor in the form of sarcasm', async () => {
         spyOn( api, 'putAnger' ).and.returnValue( Promise.resolve( sarcasmArmor ) );
         spyOn( api, 'putSelfPity' ).and.returnValue( Promise.resolve( sarcasmArmor ) );

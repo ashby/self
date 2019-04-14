@@ -1,5 +1,4 @@
-import Smith from 'classes/Smith';
-import Seeker from 'classes/Seeker';
+import Self from '../';
 import * as api from 'src/api';
 import { 
     expectEmptyPartsExcept,
@@ -18,9 +17,7 @@ const BOUNDARY = 'doesn\'t affect me';
 describe( '20190414 Self::', () => {
     let Ash;
     beforeEach( () => {
-        const seeker = new Seeker();
-        const smith = new Smith();
-        Ash = Object.assign( seeker, smith );
+        Ash = Self();
     } );
     it( 'can assign smith to seeker and see parts, shields and virtues', () => {
         const parts = Ash.seeParts();

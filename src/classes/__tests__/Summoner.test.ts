@@ -16,6 +16,18 @@ describe( 'Summoner::', () => {
     } );
     it( 'can summon Guard', async () => {
         await Ash.summonGuard();
-        //console.log( Guard );
+        const parts = Guard.seeParts();
+        expect( parts.mouth.anger ).toEqual( BOUNDARY );
+        expect( parts.face.selfPity ).toEqual( BOUNDARY );
+        expect( parts.mouth.anger ).toEqual( BOUNDARY );
+        const shields = Guard.seeShields();
+        expect( shields.denial.armor ).toEqual( BOUNDARY );
+        expect( shields.confusion.armor ).toEqual( BOUNDARY );
+        const constructs = Guard.seeConstructs();
+        expect( constructs.gate.boundary ).toEqual( BOUNDARY );
+        expect.assertions( 6 );
     } );
+    it( 'can dismiss Guard', async () => {
+        await Ash.dismissGuard();
+    } )
 } );

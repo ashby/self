@@ -7,4 +7,9 @@ export default class Summoner extends Self {
         await Guard.buildBoundary( boundary );
         return Promise.resolve( boundary );
     }
+    public dismissGuard = async () => {
+        await Guard.removeBoundary();
+        global.removeGuardian();
+        return Promise.resolve( true );
+    }
 }

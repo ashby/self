@@ -33,5 +33,5 @@ export default class Seeker extends Self {
                         .then( () => 
                             [ 'mind', 'soul', 'love' ].map( part => this[ part ].vulnerability = { ...EMPTY_VIRTUE }.vulnerability ) 
                         )
-                        .catch( async error => await this.summonGuard( error ) )                    
+                        .catch( async error => await this.summonGuard( error ) )                
 }

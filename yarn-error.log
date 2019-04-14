@@ -1,5 +1,5 @@
 Arguments: 
-  /Users/utting/.nvm/versions/node/v10.15.1/bin/node /Users/utting/.yarn/bin/yarn.js test Guardian.test.ts
+  /Users/utting/.nvm/versions/node/v10.15.1/bin/node /Users/utting/.yarn/bin/yarn.js test 20190414.test.ts
 
 PATH: 
   /Users/utting/.nvm/versions/node/v10.15.1/bin:/Users/utting/.yarn/bin:/usr/local/bin:/usr/local/share/npm/bin:/Users/utting/.rvm/gems/ruby-2.4.0/bin:/Users/utting/.rvm/gems/ruby-2.4.0@global/bin:/Users/utting/.rvm/rubies/ruby-2.4.0/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/utting/.rvm/bin:/Users/utting/.rvm/bin
@@ -4205,7 +4205,7 @@ Trace:
   Error: Command failed.
   Exit code: 1
   Command: sh
-  Arguments: -c jest Guardian.test.ts
+  Arguments: -c jest 20190414.test.ts
   Directory: /Users/utting/htdocs/ash/self
   Output:
   

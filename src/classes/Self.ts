@@ -1,3 +1,4 @@
+import Guardian from './Guardian';
 import * as api from 'src/api';
 import { 
     EMPTY_PART,

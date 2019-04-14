@@ -1,1 +1,3 @@
 node_modules
+lcov-report
+src/__tests__

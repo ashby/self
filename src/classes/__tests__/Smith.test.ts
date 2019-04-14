@@ -20,7 +20,7 @@ describe( 'Smith armor::', () => {{}
         spyOn( api, 'postArmor' ).and.returnValue( Promise.resolve( silenceArmor ) );
         spyOn( api, 'putArmor' ).and.returnValue( Promise.resolve( denialArmor ) );
         spyOn( api, 'deleteArmor' ).and.returnValue( Promise.resolve( [] ) );
-        handleShieldsExceptions = ( fullShields ) => expectEmptyShieldsExcept( fullShields, shieldKeys, shields );
+        handleShieldsExceptions = ( fullShields ) => expectEmptyShieldsExcept( fullShields, shields );
     } )
     it( 'can handle armor', async () => {
         spyOn( api, 'putAnger' ).and.returnValue( Promise.resolve( denialArmor ) );
@@ -83,7 +83,7 @@ describe( 'Smith armor::', () => {{}
         handleShieldsExceptions();
         const parts = Ash.seeParts();
         const partKeys = Object.keys( parts );
-        expectEmptyPartsExcept( [], partKeys, parts );
+        expectEmptyPartsExcept( [], parts );
         expect.assertions( 4 + shieldKeys.length + partKeys.length );
     } );
 } );

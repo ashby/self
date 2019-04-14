@@ -14,7 +14,7 @@ export default class Guardian extends Smith {
         tower: this.tower
     } )
     public buildBoundary = async ( boundary ) => {
-        const armor = await this.updateArmor( boundary );
+        await this.updateArmor( boundary );
         boundary = await this.createBoundary( boundary );
         return Promise.resolve( boundary );
     }

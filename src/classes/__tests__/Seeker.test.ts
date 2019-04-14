@@ -25,7 +25,7 @@ describe( 'Seeker vulnerability ::', () => {
         spyOn( api, 'putSelfPity' ).and.returnValue( Promise.resolve( boundary ) );
         spyOn( api, 'putArmor' ).and.returnValue( Promise.resolve( boundary ) );
         spyOn( api, 'postBoundary' ).and.returnValue( Promise.resolve( boundary ) );
-        handleVirtuesExceptions = ( fullVirtues ) => expectEmptyVirtuesExcept( fullVirtues, virtueKeys, virtues );
+        handleVirtuesExceptions = ( fullVirtues ) => expectEmptyVirtuesExcept( fullVirtues, virtues );
     } )
     it( 'can handle vulnerability', async () => {
         let vulnerability;

@@ -24,7 +24,7 @@ describe( 'Guardian boundary::', () => {{}
         spyOn( api, 'postBoundary' ).and.returnValue( Promise.resolve( gateBoundary ) );
         spyOn( api, 'putBoundary' ).and.returnValue( Promise.resolve( wallBoundary ) );
         spyOn( api, 'deleteBoundary' ).and.returnValue( Promise.resolve( [] ) );
-        handleConstructsExceptions = ( fullConstructs ) => expectEmptyConstructsExcept( fullConstructs, constructKeys, constructs );
+        handleConstructsExceptions = ( fullConstructs ) => expectEmptyConstructsExcept( fullConstructs, constructs );
     } )
     it( 'can handle boundary', async () => {
         let boundary;
@@ -91,10 +91,10 @@ describe( 'Guardian boundary::', () => {{}
         handleConstructsExceptions();
         const parts = Ash.seeParts();
         const partKeys = Object.keys( parts );
-        expectEmptyPartsExcept( [], partKeys, parts );
+        expectEmptyPartsExcept( [], parts );
         const shields = Ash.seeShields();
         const shieldKeys = Object.keys( shields );
-        expectEmptyShieldsExcept( [], shieldKeys, shields );
+        expectEmptyShieldsExcept( [], shields );
         expect.assertions( 4 + constructKeys.length + partKeys.length + shieldKeys.length );
     } );
 } );

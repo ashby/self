@@ -71,7 +71,7 @@ describe( 'Self anger ::', () => {
         spyOn( api, 'postAnger' ).and.returnValue( Promise.resolve( gutAnger ) );
         spyOn( api, 'putAnger' ).and.returnValue( Promise.resolve( mouthAnger ) );
         spyOn( api, 'deleteAnger' ).and.returnValue( Promise.resolve( [] ) );
-        handlePartsExceptions = ( fullParts ) => expectEmptyPartsExcept( fullParts, partKeys, parts );
+        handlePartsExceptions = ( fullParts ) => expectEmptyPartsExcept( fullParts, parts );
     } )
     it( 'can handle anger', async () => {
         let anger;
@@ -133,7 +133,7 @@ describe( 'Self self-pity ::', () => {
         spyOn( api, 'postSelfPity' ).and.returnValue( Promise.resolve( sternumSelfPity ) );
         spyOn( api, 'putSelfPity' ).and.returnValue( Promise.resolve( faceSelfPity ) );
         spyOn( api, 'deleteSelfPity' ).and.returnValue( Promise.resolve( [] ) );
-        handlePartsExceptions = ( fullParts ) => expectEmptyPartsExcept( fullParts, partKeys, parts );
+        handlePartsExceptions = ( fullParts ) => expectEmptyPartsExcept( fullParts, parts );
     } )
     it( 'can handle self-pity', async () => {
         let selfPity;

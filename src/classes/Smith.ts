@@ -1,4 +1,4 @@
-import Self from './';
+import Self from './Self';
 import * as api from 'src/api';
 import { 
     EMPTY_SHIELD,

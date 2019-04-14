@@ -1,4 +1,4 @@
-import Seeker from '../Seeker';
+import getSelf from '../../';
 import * as api from 'src/api';
 import { expectEmptyVirtuesExcept } from 'app-test-utils';
 import {
@@ -18,7 +18,7 @@ const testSeeker = ( type ) => {
     const apiType = type.charAt(0).toUpperCase() + type.slice(1);
     const FIXTURE_TYPE = type.toUpperCase();
     beforeEach( () => {
-        Ash = new Seeker();
+        Ash = getSelf();
         virtues = Ash.seeVirtues();
         virtueKeys = Object.keys( virtues );
         spyOn( api, 'getVulnerability' ).and.returnValue( Promise.resolve( fixture.MIND_VULNERABILITY ) );
@@ -92,17 +92,19 @@ describe( 'Seeker Guard::', () => {
         LOVE_VULNERABILITY 
     } = fixture;
     beforeEach( () => {
-        Ash = new Seeker();
+        Ash = getSelf();
         virtues = Ash.seeVirtues();
         virtueKeys = Object.keys( virtues );
         spyOn( api, `getVulnerability` ).and.returnValue( Promise.resolve( MIND_VULNERABILITY ) );
         spyOn( api, `postVulnerability` ).and.returnValue( Promise.resolve( SOUL_VULNERABILITY ) );
         spyOn( api, `putVulnerability` ).and.returnValue( Promise.resolve( LOVE_VULNERABILITY ) );
-        spyOn( api, `deleteVulnerability` ).and.returnValue( Promise.reject() );
+        spyOn( api, `deleteVulnerability` ).and.returnValue( Promise.reject( BOUNDARY ) );
         spyOn( api, 'putAnger' ).and.returnValue( Promise.resolve( BOUNDARY ) );
         spyOn( api, 'putSelfPity' ).and.returnValue( Promise.resolve( BOUNDARY ) );
         spyOn( api, 'putArmor' ).and.returnValue( Promise.resolve( BOUNDARY ) );
         spyOn( api, 'postBoundary' ).and.returnValue( Promise.resolve( BOUNDARY ) );
+        spyOn( api, 'getAcceptance' ).and.returnValue( Promise.resolve( BOUNDARY ) );
+        spyOn( api, 'deleteBoundary' ).and.returnValue( Promise.resolve() );
         handleVirtuesExceptions = ( fullVirtues ) => expectEmptyVirtuesExcept( fullVirtues, virtues );
     } );
     it( 'can summon guard', async () => {
@@ -118,9 +120,22 @@ describe( 'Seeker Guard::', () => {
         const parts = Guard.seeParts();
         expect( parts.mouth.anger ).toEqual( BOUNDARY );
         expect( parts.face.selfPity ).toEqual( BOUNDARY );
-        expect.assertions( 6 + virtueKeys.length - 3 );
+        const constructs = Guard.seeConstructs();
+        expect( constructs.gate.boundary ).toEqual( BOUNDARY );
+        expect.assertions( 7 + virtueKeys.length - 3 );
     } );
-    // it( 'can dismiss Guard', () => {
-    //     expect( true ).toEqual( false );
-    // } );
+    it( 'can dismiss Guard and have acceptance in the mind', async () => {
+        await Ash.removeVulnerability();
+        const parts = Guard.seeParts();
+        expect( parts.mouth.anger ).toEqual( BOUNDARY );
+        expect( parts.face.selfPity ).toEqual( BOUNDARY );
+        const constructs = Guard.seeConstructs();
+        expect( constructs.gate.boundary ).toEqual( BOUNDARY );
+        await Ash.getAcceptance();
+        expect( global.Guard ).toBe( undefined );
+        const virtues = Ash.seeVirtues();
+        expect( api.deleteBoundary ).toBeCalled();
+        expect( virtues.mind.acceptance ).toEqual( BOUNDARY );
+        expect.assertions( 6 );
+    } );
 } );

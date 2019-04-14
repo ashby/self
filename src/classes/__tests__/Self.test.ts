@@ -1,4 +1,4 @@
-import Self from '../Self';
+import getSelf from '../../';
 import * as api from 'src/api';
 import { 
     RESENTMENT_TYPE_DEFAULT,
@@ -22,7 +22,7 @@ const RESENTMENT = 'in MN';
 describe( 'Self ::', () => {
     let Ash, partResentment;
     beforeEach( () => {
-        Ash = new Self();
+        Ash = getSelf();
         partResentment = [ RESENTMENT ];
         spyOn( api, 'putAnger' ).and.returnValue( Promise.resolve( partResentment ) );
         spyOn( api, 'deleteAnger' ).and.returnValue( Promise.resolve() );
@@ -61,7 +61,7 @@ describe( 'Self ::', () => {
 describe( 'Self anger ::', () => {
     let Ash, parts, partKeys, brainAnger, gutAnger, mouthAnger, handlePartsExceptions;
     beforeEach( () => {
-        Ash = new Self();
+        Ash = getSelf();
         parts = Ash.seeParts();
         partKeys = Object.keys( parts );
         brainAnger = [ OLD_ANGER, ANGER, NEW_ANGER ];
@@ -123,7 +123,7 @@ describe( 'Self anger ::', () => {
 describe( 'Self self-pity ::', () => {
     let Ash, parts, partKeys, brainSelfPity, sternumSelfPity, faceSelfPity, handlePartsExceptions;
     beforeEach( () => {
-        Ash = new Self();
+        Ash = getSelf();
         parts = Ash.seeParts();
         partKeys = Object.keys( parts );
         brainSelfPity = [ OLD_SELF_PITY, SELF_PITY, NEW_SELF_PITY ];

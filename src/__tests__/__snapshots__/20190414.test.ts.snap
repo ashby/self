@@ -1,0 +1,126 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`20190414 Self:: can create Guard, manage silence, remove anger and self pity, and be ready with some vulnerability 1`] = `
+Object {
+  "guardConstructs": Object {
+    "gate": Object {
+      "boundary": Array [
+        "doesn't affect me",
+      ],
+    },
+    "tower": Object {
+      "boundary": Object {},
+    },
+    "wall": Object {
+      "boundary": Object {},
+    },
+  },
+  "guardParts": Object {
+    "brain": Object {
+      "anger": Array [],
+      "selfPity": Array [],
+    },
+    "face": Object {
+      "anger": Array [],
+      "selfPity": Array [],
+    },
+    "gut": Object {
+      "anger": Array [],
+      "selfPity": Array [],
+    },
+    "heart": Object {
+      "anger": Array [],
+      "selfPity": Array [],
+    },
+    "mouth": Object {
+      "anger": Array [],
+      "selfPity": Array [],
+    },
+    "skin": Object {
+      "anger": Array [],
+      "selfPity": Array [],
+    },
+    "sternum": Object {
+      "anger": Array [],
+      "selfPity": Array [],
+    },
+  },
+  "guardShields": Object {
+    "confusion": Object {
+      "armor": Array [
+        "patiently waiting to hear",
+      ],
+    },
+    "denial": Object {
+      "armor": Array [
+        "patiently waiting to hear",
+      ],
+    },
+    "sarcasm": Object {
+      "armor": Array [],
+    },
+    "silence": Object {
+      "armor": Array [],
+    },
+  },
+  "parts": Object {
+    "brain": Object {
+      "anger": Array [],
+      "selfPity": Array [],
+    },
+    "face": Object {
+      "anger": Array [],
+      "selfPity": Array [],
+    },
+    "gut": Object {
+      "anger": Array [],
+      "selfPity": Array [],
+    },
+    "heart": Object {
+      "anger": Array [],
+      "selfPity": Array [],
+    },
+    "mouth": Object {
+      "anger": Array [],
+      "selfPity": Array [],
+    },
+    "skin": Object {
+      "anger": Array [],
+      "selfPity": Array [],
+    },
+    "sternum": Object {
+      "anger": Array [],
+      "selfPity": Array [],
+    },
+  },
+  "shields": Object {
+    "confusion": Object {
+      "armor": Array [],
+    },
+    "denial": Object {
+      "armor": Array [],
+    },
+    "sarcasm": Object {
+      "armor": Array [],
+    },
+    "silence": Object {
+      "armor": Array [
+        "patiently waiting to hear",
+      ],
+    },
+  },
+  "virtues": Object {
+    "love": Object {
+      "vulnerability": Array [],
+    },
+    "mind": Object {
+      "vulnerability": Array [
+        "i care and worry",
+      ],
+    },
+    "soul": Object {
+      "vulnerability": Array [],
+    },
+  },
+}
+`;

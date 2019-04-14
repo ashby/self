@@ -1,66 +1,68 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`20190414 Self:: can create Guard, manage silence, remove anger and self pity, and be ready with some vulnerability 1`] = `
+exports[`20190414 Inventory:: can create Guard, manage silence, remove anger and self pity, and be ready with some vulnerability 1`] = `
 Object {
-  "guardConstructs": Object {
-    "gate": Object {
-      "boundary": Array [
-        "doesn't affect me",
-      ],
+  "guard": Object {
+    "constructs": Object {
+      "gate": Object {
+        "boundary": Array [
+          "doesn't affect me",
+        ],
+      },
+      "tower": Object {
+        "boundary": Array [],
+      },
+      "wall": Object {
+        "boundary": Array [],
+      },
     },
-    "tower": Object {
-      "boundary": Array [],
+    "parts": Object {
+      "brain": Object {
+        "anger": Array [],
+        "selfPity": Array [],
+      },
+      "face": Object {
+        "anger": Array [],
+        "selfPity": Array [],
+      },
+      "gut": Object {
+        "anger": Array [],
+        "selfPity": Array [],
+      },
+      "heart": Object {
+        "anger": Array [],
+        "selfPity": Array [],
+      },
+      "mouth": Object {
+        "anger": Array [],
+        "selfPity": Array [],
+      },
+      "skin": Object {
+        "anger": Array [],
+        "selfPity": Array [],
+      },
+      "sternum": Object {
+        "anger": Array [],
+        "selfPity": Array [],
+      },
     },
-    "wall": Object {
-      "boundary": Array [],
-    },
-  },
-  "guardParts": Object {
-    "brain": Object {
-      "anger": Array [],
-      "selfPity": Array [],
-    },
-    "face": Object {
-      "anger": Array [],
-      "selfPity": Array [],
-    },
-    "gut": Object {
-      "anger": Array [],
-      "selfPity": Array [],
-    },
-    "heart": Object {
-      "anger": Array [],
-      "selfPity": Array [],
-    },
-    "mouth": Object {
-      "anger": Array [],
-      "selfPity": Array [],
-    },
-    "skin": Object {
-      "anger": Array [],
-      "selfPity": Array [],
-    },
-    "sternum": Object {
-      "anger": Array [],
-      "selfPity": Array [],
-    },
-  },
-  "guardShields": Object {
-    "confusion": Object {
-      "armor": Array [
-        "patiently waiting to hear",
-      ],
-    },
-    "denial": Object {
-      "armor": Array [
-        "patiently waiting to hear",
-      ],
-    },
-    "sarcasm": Object {
-      "armor": Array [],
-    },
-    "silence": Object {
-      "armor": Array [],
+    "shields": Object {
+      "confusion": Object {
+        "armor": Array [
+          "patiently waiting to hear",
+        ],
+      },
+      "denial": Object {
+        "armor": Array [
+          "patiently waiting to hear",
+        ],
+      },
+      "sarcasm": Object {
+        "armor": Array [],
+      },
+      "silence": Object {
+        "armor": Array [],
+      },
     },
   },
   "parts": Object {
@@ -119,6 +121,73 @@ Object {
       "vulnerability": Array [
         "i care and worry",
       ],
+    },
+    "soul": Object {
+      "acceptance": Array [],
+      "vulnerability": Array [],
+    },
+  },
+}
+`;
+
+exports[`20190414 Inventory:: can dismiss Guard and create acceptance in the mind, but keep silence armor up 1`] = `
+Object {
+  "parts": Object {
+    "brain": Object {
+      "anger": Array [],
+      "selfPity": Array [],
+    },
+    "face": Object {
+      "anger": Array [],
+      "selfPity": Array [],
+    },
+    "gut": Object {
+      "anger": Array [],
+      "selfPity": Array [],
+    },
+    "heart": Object {
+      "anger": Array [],
+      "selfPity": Array [],
+    },
+    "mouth": Object {
+      "anger": Array [],
+      "selfPity": Array [],
+    },
+    "skin": Object {
+      "anger": Array [],
+      "selfPity": Array [],
+    },
+    "sternum": Object {
+      "anger": Array [],
+      "selfPity": Array [],
+    },
+  },
+  "shields": Object {
+    "confusion": Object {
+      "armor": Array [],
+    },
+    "denial": Object {
+      "armor": Array [],
+    },
+    "sarcasm": Object {
+      "armor": Array [],
+    },
+    "silence": Object {
+      "armor": Array [
+        "patiently waiting to hear",
+      ],
+    },
+  },
+  "virtues": Object {
+    "love": Object {
+      "acceptance": Array [],
+      "vulnerability": Array [],
+    },
+    "mind": Object {
+      "acceptance": Array [
+        "doesn't affect me",
+      ],
+      "vulnerability": Array [],
     },
     "soul": Object {
       "acceptance": Array [],

@@ -14,21 +14,10 @@ const VULNERABILITY = 'i care and worry';
 
 const BOUNDARY = 'doesn\'t affect me';
 
-describe( '20190414 Self::', () => {
+describe( '20190414 Inventory::', () => {
     let Ash;
     beforeEach( () => {
         Ash = getSelf();
-    } );
-    it( 'can assign smith to seeker and see parts, shields and virtues', () => {
-        const parts = Ash.seeParts();
-        const shields = Ash.seeShields();
-        const virtues = Ash.seeVirtues();
-        expect( Object.keys( parts ) ).toHaveLength( 7 );
-        expect( Object.keys( shields ) ).toHaveLength( 4 );
-        expect( Object.keys( virtues ) ).toHaveLength( 3 );
-        expect.assertions( 3 );
-    } );
-    it( 'can create Guard, manage silence, remove anger and self pity, and be ready with some vulnerability', async () => {
         spyOn( api, 'postBoundary' ).and.returnValue( Promise.resolve( [ BOUNDARY ] ) );
         spyOn( api, 'postArmor' ).and.returnValue( Promise.resolve( [ ARMOR ] ) );
         spyOn( api, 'putArmor' ).and.returnValue( Promise.resolve( [ ARMOR ] ) );
@@ -40,7 +29,19 @@ describe( '20190414 Self::', () => {
         spyOn( api, 'putSelfPity' ).and.returnValue( Promise.resolve( [ BOUNDARY ] ) );
         spyOn( api, 'getVulnerability' ).and.returnValue( Promise.resolve( [ VULNERABILITY ] ) );
         spyOn( api, 'deleteVulnerability' ).and.returnValue( Promise.reject( [ VULNERABILITY ] ) );
-
+        spyOn( api, 'deleteBoundary' ).and.returnValue( Promise.resolve( [ VULNERABILITY ] ) );
+        spyOn( api, 'getAcceptance' ).and.returnValue( Promise.resolve( [ BOUNDARY ] ) );
+    } );
+    it( 'can assign smith to seeker and see parts, shields and virtues', () => {
+        const parts = Ash.seeParts();
+        const shields = Ash.seeShields();
+        const virtues = Ash.seeVirtues();
+        expect( Object.keys( parts ) ).toHaveLength( 7 );
+        expect( Object.keys( shields ) ).toHaveLength( 4 );
+        expect( Object.keys( virtues ) ).toHaveLength( 3 );
+        expect.assertions( 3 );
+    } );
+    it( 'can create Guard, manage silence, remove anger and self pity, and be ready with some vulnerability', async () => {
         await Ash.createAnger( ANGER );
         await Ash.createSelfPity( SELF_PITY );
         await Ash.createArmor( ARMOR );
@@ -81,11 +82,19 @@ describe( '20190414 Self::', () => {
         const guartsPartsCount = Object.keys( guardParts ).length;
         expectEmptyPartsExcept( [], guardParts );
 
-        expect( { parts,shields, virtues, guardParts, guardShields, guardConstructs } ).toMatchSnapshot();
+        expect( { parts, shields, virtues, guard: { parts: guardParts, shields: guardShields, constructs: guardConstructs } } ).toMatchSnapshot();
         expect.assertions( 9 + virtuesCount + partsCount + guartsPartsCount + guardShieldsCount + shieldsCount + guardConstructsCount );
     } );
 
-    it( 'can dismiss guard and create acceptance', () => {
-        expect( true ).toEqual( false );
+    it( 'can dismiss Guard and create acceptance in the mind, but keep silence armor up', async () => {
+        await Ash.removeVulnerability();
+        await Ash.createArmor( ARMOR );
+        expect( Guard ).toBeDefined()
+        await Ash.getAcceptance( BOUNDARY );
+        expect( global.Guard ).not.toBeDefined();
+        const shields = Ash.seeShields();
+        const virtues = Ash.seeVirtues();
+        const parts = Ash.seeParts();
+        expect( { virtues, shields, parts } ).toMatchSnapshot();
     } );
 } );

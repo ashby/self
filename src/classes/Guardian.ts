@@ -34,5 +34,5 @@ export default class Guardian extends Smith {
                                 .map( construct => this[ construct ].boundary = { ...EMPTY_CONSTRUCT }.boundary );
                             Promise.resolve( shields ); 
                         } )
-                        .then( () => this.removeArmor() )                      
+                        .then( () => this.removeArmor() )                  
 }

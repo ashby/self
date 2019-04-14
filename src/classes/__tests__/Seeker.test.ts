@@ -1,83 +1,128 @@
 import Seeker from '../Seeker';
 import * as api from 'src/api';
 import { expectEmptyVirtuesExcept } from 'app-test-utils';
+import ACCEPTANCE_FIXTURE from '../__fixtures__/acceptance';
+import VULNERABILITY_FIXTURE from '../__fixtures__/vulnerability';
 
-const OLD_VULNERABILITY = 'fear';
-const VULNERABILITY = 'in love';
-const NEW_VULNERABILITY = 'acknowledgement';
-const BOUNDARY = 'boundary';
+const fixture = {
+    ...VULNERABILITY_FIXTURE,
+    ...ACCEPTANCE_FIXTURE,
+    BOUNDARY: [ 'boundary' ]
+};
 
-describe( 'Seeker vulnerability ::', () => {
-    let Ash, virtues, virtueKeys, mindVulnerability, soulVulnerability, loveVulnerability, boundary, handleVirtuesExceptions;
+const testSeeker = ( type ) => {
+    let Ash, virtues, virtueKeys, handleVirtuesExceptions;
+    const apiType = type.charAt(0).toUpperCase() + type.slice(1);
+    const FIXTURE_TYPE = type.toUpperCase();
     beforeEach( () => {
         Ash = new Seeker();
         virtues = Ash.seeVirtues();
         virtueKeys = Object.keys( virtues );
-        mindVulnerability = [ OLD_VULNERABILITY, VULNERABILITY, NEW_VULNERABILITY ];
-        soulVulnerability = [ VULNERABILITY ];
-        loveVulnerability = [ VULNERABILITY, NEW_VULNERABILITY ];
-        boundary = [ BOUNDARY ];
-        spyOn( api, 'getVulnerability' ).and.returnValue( Promise.resolve( mindVulnerability ) );
-        spyOn( api, 'postVulnerability' ).and.returnValue( Promise.resolve( soulVulnerability ) );
-        spyOn( api, 'putVulnerability' ).and.returnValue( Promise.resolve( loveVulnerability ) );
-        spyOn( api, 'deleteVulnerability' ).and.returnValue( Promise.reject( boundary ) );
-        spyOn( api, 'putAnger' ).and.returnValue( Promise.resolve( boundary ) );
-        spyOn( api, 'putSelfPity' ).and.returnValue( Promise.resolve( boundary ) );
-        spyOn( api, 'putArmor' ).and.returnValue( Promise.resolve( boundary ) );
-        spyOn( api, 'postBoundary' ).and.returnValue( Promise.resolve( boundary ) );
+        spyOn( api, 'getVulnerability' ).and.returnValue( Promise.resolve( fixture.MIND_VULNERABILITY ) );
+        spyOn( api, 'postVulnerability' ).and.returnValue( Promise.resolve( fixture.SOUL_VULNERABILITY ) );
+        spyOn( api, 'putVulnerability' ).and.returnValue( Promise.resolve( fixture.LOVE_VULNERABILITY ) );
+        spyOn( api, 'deleteVulnerability' ).and.returnValue( Promise.resolve() );
+        spyOn( api, 'getAcceptance' ).and.returnValue( Promise.resolve( fixture.MIND_VULNERABILITY ) );
+        spyOn( api, 'postAcceptance' ).and.returnValue( Promise.resolve( fixture.SOUL_VULNERABILITY ) );
+        spyOn( api, 'putAcceptance' ).and.returnValue( Promise.resolve( fixture.LOVE_VULNERABILITY ) );
+        spyOn( api, 'deleteAcceptance' ).and.returnValue( Promise.resolve() );
         handleVirtuesExceptions = ( fullVirtues ) => expectEmptyVirtuesExcept( fullVirtues, virtues );
     } )
-    it( 'can handle vulnerability', async () => {
-        let vulnerability;
-        vulnerability = await Ash.createVulnerability( VULNERABILITY );
-        expect( vulnerability ).toEqual( soulVulnerability );
-        vulnerability = await Ash.updateVulnerability( NEW_VULNERABILITY );
-        expect( vulnerability ).toEqual( loveVulnerability );
-        vulnerability = await Ash.getVulnerability();
-        expect( vulnerability ).toEqual( mindVulnerability );
-        expect.assertions( 3 );
+    it( `can handle ${type} truth`, async () => {
+        let truth;
+        truth = await Ash[ `create${apiType}` ]( fixture[ FIXTURE_TYPE ] );
+        expect( truth ).toEqual( fixture[ `SOUL_${FIXTURE_TYPE}` ] );
+        truth = await Ash.updateVulnerability( fixture[ `NEW_${FIXTURE_TYPE}` ] );
+        expect( truth ).toEqual( fixture[ `LOVE_${FIXTURE_TYPE}` ] );
+        truth = await Ash.getVulnerability();
+        expect( truth ).toEqual( fixture[ `MIND_${FIXTURE_TYPE}` ] );
+        //expect.assertions( 3 ); wth
     } );
-    it( 'can summon guard and create boundary', async () => {
-        let boundary;
-        boundary = await Ash.removeVulnerability();
-        expect( boundary ).toEqual( boundary );
-    } );
-    it( 'gets vulnerability from the mind', async () => {
-        await Ash.getVulnerability();
-        expect( api.getVulnerability ).toBeCalled();
-        expect( Ash.mind.vulnerability ).toEqual( mindVulnerability );
+    it( `gets ${type} from the mind`, async () => {
+        await Ash[ `get${apiType}` ]();
+        expect( api[ `get${apiType}` ] ).toBeCalled();
+        expect( Ash.mind[ type ] ).toEqual( fixture[  `MIND_${FIXTURE_TYPE}` ] );
         handleVirtuesExceptions( [ 'mind' ] );
         expect.assertions( 2 + virtueKeys.length - 1 );
     } );
-    it( 'creates vulnerability in soul', async () => {
-        await Ash.createVulnerability( VULNERABILITY );
-        expect( api.postVulnerability ).toBeCalled(); 
-        expect( Ash.soul.vulnerability ).toEqual( soulVulnerability );
+    it( `creates ${type} in soul`, async () => {
+        await Ash[ `create${apiType}` ]( fixture[ FIXTURE_TYPE ] );
+        expect( api[ `post${apiType}` ] ).toBeCalled(); 
+        expect( Ash.soul[ type ] ).toEqual( fixture[ `SOUL_${FIXTURE_TYPE}` ] );
         handleVirtuesExceptions( [ 'soul' ] );
         expect.assertions( 2 + virtueKeys.length - 1 );
     } );
-    it( 'updates vulnerability in love', async () => {
-        await Ash.createVulnerability( VULNERABILITY );
-        await Ash.updateVulnerability( NEW_VULNERABILITY );
-        expect( api.putVulnerability ).toBeCalled();
-        expect( Ash.soul.vulnerability ).toEqual( soulVulnerability );
-        expect( Ash.love.vulnerability ).toEqual( loveVulnerability );
+    it( `updates ${type} in love`, async () => {
+        await Ash[ `create${apiType}` ]( fixture[ FIXTURE_TYPE ] );
+        await Ash[ `update${apiType}` ]( fixture[ `NEW_${FIXTURE_TYPE}` ] );
+        expect( api[ `put${apiType}` ] ).toBeCalled();
+        expect( Ash.soul[ type ] ).toEqual( fixture[ `SOUL_${FIXTURE_TYPE}` ] );
+        expect( Ash.love[ type ] ).toEqual( fixture[ `LOVE_${FIXTURE_TYPE}` ] );
         handleVirtuesExceptions( [ 'soul', 'love' ] );
         expect.assertions( 3 + virtueKeys.length - 2 );
     } );
-    it( 'removes vulnerability from mind, soul and love', async () => {
+    it( `removes ${type} from mind, soul and love`, async () => {
+        await Ash[ `create${apiType}` ]( fixture[ FIXTURE_TYPE ] );
+        await Ash[ `update${apiType}` ]( fixture[ `NEW_${FIXTURE_TYPE}` ] );
+        await Ash[ `get${apiType}` ]();
+        expect( Ash.soul[ type ] ).toEqual( fixture[ `SOUL_${FIXTURE_TYPE}` ] );
+        expect( Ash.love[ type ] ).toEqual( fixture[ `LOVE_${FIXTURE_TYPE}` ] );
+        expect( Ash.mind[ type ] ).toEqual( fixture[ `MIND_${FIXTURE_TYPE}` ] );
+        await Ash[ `remove${apiType}` ]();
+        expect( api[ `delete${apiType}` ] ).toBeCalled();
+        await handleVirtuesExceptions();
+        expect.assertions( 4 + virtueKeys.length );
+    } );
+};
+
+describe( 'Seeker vulnerability ::', () => testSeeker( 'vulnerability' ) );
+
+describe( 'Seeker acceptance ::', () => testSeeker( 'acceptance' ) );
+
+describe( 'Seeker Guard::', () => {
+    let Ash, handleVirtuesExceptions, virtues, virtueKeys;
+    const { 
+        VULNERABILITY, 
+        NEW_VULNERABILITY, 
+        BOUNDARY, 
+        MIND_VULNERABILITY, 
+        SOUL_VULNERABILITY, 
+        LOVE_VULNERABILITY 
+    } = fixture;
+    beforeEach( () => {
+        Ash = new Seeker();
+        virtues = Ash.seeVirtues();
+        virtueKeys = Object.keys( virtues );
+        spyOn( api, `getVulnerability` ).and.returnValue( Promise.resolve( MIND_VULNERABILITY ) );
+        spyOn( api, `postVulnerability` ).and.returnValue( Promise.resolve( SOUL_VULNERABILITY ) );
+        spyOn( api, `putVulnerability` ).and.returnValue( Promise.resolve( LOVE_VULNERABILITY ) );
+        spyOn( api, `deleteVulnerability` ).and.returnValue( Promise.reject( BOUNDARY ) );
+        spyOn( api, 'putAnger' ).and.returnValue( Promise.resolve( BOUNDARY ) );
+        spyOn( api, 'putSelfPity' ).and.returnValue( Promise.resolve( BOUNDARY ) );
+        spyOn( api, 'putArmor' ).and.returnValue( Promise.resolve( BOUNDARY ) );
+        spyOn( api, 'postBoundary' ).and.returnValue( Promise.resolve( BOUNDARY ) );
+        handleVirtuesExceptions = ( fullVirtues ) => expectEmptyVirtuesExcept( fullVirtues, virtues );
+    } );
+    it( 'can summon guard', async () => {
         await Ash.createVulnerability( VULNERABILITY );
         await Ash.updateVulnerability( NEW_VULNERABILITY );
         await Ash.getVulnerability();
-        expect( Ash.soul.vulnerability ).toEqual( soulVulnerability );
-        expect( Ash.love.vulnerability ).toEqual( loveVulnerability );
-        expect( Ash.mind.vulnerability ).toEqual( mindVulnerability );
+        expect( Ash.soul.vulnerability ).toEqual( SOUL_VULNERABILITY );
+        expect( Ash.love.vulnerability ).toEqual( LOVE_VULNERABILITY );
+        expect( Ash.mind.vulnerability ).toEqual( MIND_VULNERABILITY );
         const Guard = await Ash.removeVulnerability();
         expect( api.deleteVulnerability ).toBeCalled();
         await handleVirtuesExceptions( [ 'mind', 'soul', 'love' ] );
         const parts = Guard.seeParts();
-        expect( parts.mouth.anger ).toEqual( boundary );
-        expect( parts.face.selfPity ).toEqual( boundary );
+        expect( parts.mouth.anger ).toEqual( BOUNDARY );
+        expect( parts.face.selfPity ).toEqual( BOUNDARY );
         expect.assertions( 6 + virtueKeys.length - 3 );
     } );
+    it( 'can dismiss Guard', () => {
+        expect( true ).toEqual( false );
+    } );
+} );
+
+describe( 'Seeker acceptance ::', () => {
+    expect( true ).toEqual( false );
 } );

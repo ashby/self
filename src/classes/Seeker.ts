@@ -22,7 +22,7 @@ export default class Seeker extends Summoner {
         this[ virtue ].acceptance = union( this[ virtue ].acceptance, acceptance );
         return Promise.resolve( this[ virtue ].acceptance ); 
     }
-    private checkOnAndDismissGuard = async ( boundary ) => {
+    private handleGuard = async ( boundary ) => {
         const Guard = global.Guard;
         const hasGuard = !!Guard && isEqual( Guard.gate.boundary, boundary );
         if( hasGuard ) {
@@ -47,19 +47,19 @@ export default class Seeker extends Summoner {
                         } )  
     getAcceptance = async () => api.getAcceptance( this.route )
                         .then( async response => {
-                            await this.checkOnAndDismissGuard( response );
+                            await this.handleGuard( response );
                             const acceptance = await this.handleAcceptance( 'mind', response );
                             return acceptance; 
                         } )
     createAcceptance = async acceptance => api.postAcceptance( this.route, acceptance )
                         .then( async response => {
-                            await this.checkOnAndDismissGuard( response );
+                            await this.handleGuard( response );
                             const acceptance = await this.handleAcceptance( 'soul', response );
                             return acceptance; 
                         } )
     updateAcceptance = async acceptance => api.putAcceptance( this.route, acceptance )
                         .then( async response => {
-                            await this.checkOnAndDismissGuard( response );
+                            await this.handleGuard( response );
                             const acceptance = await this.handleAcceptance( 'love', response );
                             return acceptance; 
                         }  )

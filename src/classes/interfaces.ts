@@ -74,6 +74,7 @@ declare class Seeker extends Summoner {
     seeVirtues: Function
     private handleVulnerability: Function
     private handleAcceptance: Function
+    private handleGuard: Function
     getVulnerability: Function
     createVulnerability: Function
     updateVulnerability: Function

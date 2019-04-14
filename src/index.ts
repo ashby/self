@@ -1,14 +1,8 @@
-import Self, { Smith } from './classes';
+import { Smith, Seeker } from 'src/classes';
 
-//let Ash = new Self();
-//Ash.createAnger( 'everything' ).then( () => this.updateAnger( 'acknowledgement' ) );
-//Ash.createSelfPity( 'in MN' ).then( () => this.deleteSelfPity() );
-
-// Ash = new Smith();
-// Ash.deleteVulnerability();
-
-// const Ash = new Smith();
-// Ash.route = '_';
-// Ash.createArmor( 'fear of being in love' );
-// Ash.updateArmor( 'acknowledgement' );
-// Ash.deleteArmor();
+const Self = () => {
+    const smith = new Smith();
+    const seeker = new Seeker();
+    return Object.assign( seeker, smith );
+}
+export default Self;

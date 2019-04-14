@@ -1,14 +1,14 @@
 Arguments: 
-  /Users/utting/.nvm/versions/node/v10.15.1/bin/node /Users/utting/.yarn/bin/yarn.js test Seeker.test.ts
+  /usr/local/bin/node /Users/utting/.yarn/bin/yarn.js test Seeker.test.ts
 
 PATH: 
-  /Users/utting/.nvm/versions/node/v10.15.1/bin:/Users/utting/.yarn/bin:/usr/local/bin:/usr/local/share/npm/bin:/Users/utting/.rvm/gems/ruby-2.4.0/bin:/Users/utting/.rvm/gems/ruby-2.4.0@global/bin:/Users/utting/.rvm/rubies/ruby-2.4.0/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/utting/.rvm/bin:/Users/utting/.rvm/bin
+  /Users/utting/.yarn/bin:/usr/local/bin:/usr/local/share/npm/bin:/Users/utting/.nvm/versions/node/v7.6.0/bin:/Users/utting/.rvm/gems/ruby-2.4.0/bin:/Users/utting/.rvm/gems/ruby-2.4.0@global/bin:/Users/utting/.rvm/rubies/ruby-2.4.0/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/utting/.rvm/bin:/Users/utting/.rvm/bin
 
 Yarn version: 
   1.5.1
 
 Node version: 
-  10.15.1
+  4.4.4
 
 Platform: 
   darwin x64
@@ -4209,9 +4209,11 @@ Trace:
   Directory: /Users/utting/htdocs/ash/self
   Output:
   
+      at ProcessTermError.Error (native)
       at ProcessTermError.MessageError (/Users/utting/.yarn/lib/cli.js:186:110)
       at new ProcessTermError (/Users/utting/.yarn/lib/cli.js:226:113)
       at ChildProcess.<anonymous> (/Users/utting/.yarn/lib/cli.js:30281:17)
-      at ChildProcess.emit (events.js:189:13)
-      at maybeClose (internal/child_process.js:970:16)
-      at Process.ChildProcess._handle.onexit (internal/child_process.js:259:5)
+      at emitTwo (events.js:87:13)
+      at ChildProcess.emit (events.js:172:7)
+      at maybeClose (internal/child_process.js:827:16)
+      at Process.ChildProcess._handle.onexit (internal/child_process.js:211:5)

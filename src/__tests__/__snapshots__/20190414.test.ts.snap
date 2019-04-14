@@ -9,10 +9,10 @@ Object {
       ],
     },
     "tower": Object {
-      "boundary": Object {},
+      "boundary": Array [],
     },
     "wall": Object {
-      "boundary": Object {},
+      "boundary": Array [],
     },
   },
   "guardParts": Object {
@@ -111,14 +111,17 @@ Object {
   },
   "virtues": Object {
     "love": Object {
+      "acceptance": Array [],
       "vulnerability": Array [],
     },
     "mind": Object {
+      "acceptance": Array [],
       "vulnerability": Array [
         "i care and worry",
       ],
     },
     "soul": Object {
+      "acceptance": Array [],
       "vulnerability": Array [],
     },
   },

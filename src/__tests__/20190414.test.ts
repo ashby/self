@@ -44,7 +44,7 @@ describe( '20190414 Self::', () => {
         await Ash.createAnger( ANGER );
         await Ash.createSelfPity( SELF_PITY );
         await Ash.createArmor( ARMOR );
-        const Guard = await Ash.removeVulnerability();
+        await Ash.removeVulnerability();
 
         expect( Guard.gate.boundary ).toEqual( [ BOUNDARY ] );
         expect( Ash.gut.anger ).toEqual( [ ANGER ] );
@@ -83,5 +83,9 @@ describe( '20190414 Self::', () => {
 
         expect( { parts,shields, virtues, guardParts, guardShields, guardConstructs } ).toMatchSnapshot();
         expect.assertions( 9 + virtuesCount + partsCount + guartsPartsCount + guardShieldsCount + shieldsCount + guardConstructsCount );
+    } );
+
+    it( 'can dismiss guard and create acceptance', () => {
+        expect( true ).toEqual( false );
     } );
 } );

@@ -4,7 +4,6 @@ import {
     EMPTY_SHIELD,
     RESENTMENT_TYPE_ANGER,
     RESENTMENT_TYPE_FEAR,
-    RESENTMENT_TYPE_SADNESS,
     RESENTMENT_TYPE_ACKNOWLEDGE 
 } from 'src/constants';
 import * as union from 'lodash/union';
@@ -21,7 +20,7 @@ export default class Smith extends Self {
         sarcasm: this.sarcasm,
         confusion: this.confusion
     } )
-    private handleArmor = async ( shield, armor, type ) => {
+    public handleArmor = async ( shield, armor, type ) => {
         await this.handleResentment( type, armor );
         this[ shield ].armor = union( this[ shield ].armor, armor );
         return Promise.resolve( this[ shield ].armor );

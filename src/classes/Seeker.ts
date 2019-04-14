@@ -1,10 +1,9 @@
-import Self from './Self';
-import Guardian from './Guardian';
 import * as api from 'src/api';
 import { EMPTY_VIRTUE } from 'src/constants';
 import * as union from 'lodash/union';
+import Summoner from './Summoner';
 
-export default class Seeker extends Self {
+export default class Seeker extends Summoner {
     soul = { ...EMPTY_VIRTUE }
     love = { ...EMPTY_VIRTUE }
     mind = { ...EMPTY_VIRTUE }
@@ -22,11 +21,6 @@ export default class Seeker extends Self {
         this[ virtue ].acceptance = union( this[ virtue ].acceptance, acceptance );
         return Promise.resolve( this[ virtue ].acceptance ); 
     }
-    private summonGuard = async ( error ) => {
-        const Guard = new Guardian();
-        await Guard.buildBoundary( error );
-        return Promise.resolve( Guard );
-    }
     getVulnerability = async () => api.getVulnerability( this.route )
                         .then( response => this.handleVulnerability( 'mind', response ) )
     createVulnerability = async vulnerability => api.postVulnerability( this.route, vulnerability )
@@ -37,7 +31,10 @@ export default class Seeker extends Self {
                         .then( () => 
                             [ 'mind', 'soul', 'love' ].map( part => this[ part ].vulnerability = { ...EMPTY_VIRTUE }.vulnerability ) 
                         )
-                        .catch( async error => await this.summonGuard( error ) )
+                        .catch( async error => {
+                            await this.summonGuard( error );
+                            return new Error( error );
+                        } )  
     getAcceptance = async () => api.getAcceptance( this.route )
                         .then( response => this.handleAcceptance( 'mind', response ) )
     createAcceptance = async acceptance => api.postAcceptance( this.route, acceptance )
@@ -48,5 +45,8 @@ export default class Seeker extends Self {
                         .then( () => 
                             [ 'mind', 'soul', 'love' ].map( part => this[ part ].acceptance = { ...EMPTY_VIRTUE }.acceptance ) 
                         )
-                        .catch( async error => await this.summonGuard( error ) )               
+                        .catch( async error => {
+                            await this.summonGuard( error );
+                            return new Error( error );
+                        } )               
 }

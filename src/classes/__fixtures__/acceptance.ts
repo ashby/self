@@ -2,7 +2,7 @@ export const OLD_ACCEPTANCE = 'fear';
 export const ACCEPTANCE = 'in love';
 export const NEW_ACCEPTANCE = 'acknowledgement';
 
-const ACCEPTANCE_FIXTURE = {
+export const ACCEPTANCE_FIXTURE = {
     OLD_ACCEPTANCE,
     ACCEPTANCE,
     NEW_ACCEPTANCE,
@@ -10,5 +10,3 @@ const ACCEPTANCE_FIXTURE = {
     SOUL_ACCEPTANCE: [ ACCEPTANCE ],
     LOVE_ACCEPTANCE: [ ACCEPTANCE, NEW_ACCEPTANCE ]
 };
-
-export default ACCEPTANCE_FIXTURE;

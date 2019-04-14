@@ -29,7 +29,7 @@ export default class Self {
         gut: this.gut,
         skin: this.skin 
     } )
-    handleResentment = async ( type, resentment = '' ) => {
+    public handleResentment = async ( type, resentment = '' ) => {
         let anger = [], selfPity  = [];
         switch( type ) {
             case RESENTMENT_TYPE_ACKNOWLEDGE:
@@ -49,7 +49,7 @@ export default class Self {
                 return Promise.resolve( { anger, selfPity } );
         }
     }
-    private handleAnger = ( part, anger ) => {
+    public handleAnger = ( part, anger ) => {
         this[ part ].anger = union( this[ part ].anger, anger );
         return Promise.resolve( this[ part ].anger );
     }
@@ -64,7 +64,7 @@ export default class Self {
                             const parts = [ 'brain', 'gut', 'mouth' ].map( part => this[ part ].anger = { ...EMPTY_PART }.anger );
                             return Promise.resolve( parts );
                         } )
-    private handleSelfPity( part, selfPity ) {
+    public handleSelfPity( part, selfPity ) {
         this[ part ].selfPity = union( this[ part ].selfPity, selfPity );
         return Promise.resolve( this[ part ].selfPity ); 
     }
@@ -78,6 +78,5 @@ export default class Self {
                         .then( () => {
                             const parts = [ 'brain', 'sternum', 'face' ].map( part => this[ part ].selfPity = { ...EMPTY_PART }.selfPity );
                             return Promise.resolve( parts );
-                        } )                       
-                           
+                        } )                            
 }

@@ -1,8 +1,9 @@
-import { Smith, Seeker } from 'src/classes';
+import { Smith, Seeker, Summoner } from 'src/classes';
 
 const getSelf = () => {
     const smith = new Smith();
     const seeker = new Seeker();
-    return Object.assign( seeker, smith );
+    const summoner = new Summoner();
+    return Object.assign( seeker, smith, summoner );
 }
 export default getSelf;

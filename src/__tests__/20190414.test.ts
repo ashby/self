@@ -1,4 +1,4 @@
-import Self from '../';
+import getSelf from '../';
 import * as api from 'src/api';
 import { 
     expectEmptyPartsExcept,
@@ -17,7 +17,7 @@ const BOUNDARY = 'doesn\'t affect me';
 describe( '20190414 Self::', () => {
     let Ash;
     beforeEach( () => {
-        Ash = Self();
+        Ash = getSelf();
     } );
     it( 'can assign smith to seeker and see parts, shields and virtues', () => {
         const parts = Ash.seeParts();

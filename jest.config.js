@@ -4,12 +4,13 @@ module.exports = {
         'src/**/*.tsx',
         '!**/__mocks__/**/*',
         '!**/__fixtures__/**/*',
-        '!**/__tests__/**/*'
+        '!**/__tests__/**/*',
+        '!**/__inventory__/**/*'
     ],
     transform: {
         "^.+\\.tsx?$": "ts-jest"
     },
-    testRegex: "(/__tests__/.*|(\\.|/)(test|spec))\\.(t|j)sx?$",
+    testRegex: "(/__(tests|inventory)__/.*|(\\.|/)(test|spec))\\.(t|j)sx?$",
     moduleNameMapper: {
         "\\.(scss|jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/src/__mocks__/asset.stub.js",
         '^src/(.*)': '<rootDir>/src/$1',

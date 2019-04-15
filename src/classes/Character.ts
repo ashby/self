@@ -42,7 +42,7 @@ export default class Character extends Self {
     public createAction = ( key, value ) => api[ `post${this.apiKey( key )}` ]( this.route, value )
         .then( async response => this.createActionThen( response ) )
         .catch( async error => this.createActionCatch( error ) )
-    public increaseAction = ( key, value ) => api[ `put${this.apiKey( key )}` ]( this.route, value )
+    public increaseAction = ( key, value, resentment ) => api[ `put${this.apiKey( key )}` ]( this.route, value )
         .then( async response => this.increaseActionThen( response ) )
         .catch( async error => this.increaseActionCatch( error ) )
     public removeAction = ( key ) => api[ `get${this.apiKey( key )}` ]( this.route )

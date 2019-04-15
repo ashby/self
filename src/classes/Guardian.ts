@@ -1,9 +1,9 @@
-import Smith from './Smith';
+import { OldSmith } from './Smith';
 import * as api from 'src/api';
 import { EMPTY_CONSTRUCT } from 'src/constants';
 import * as union from 'lodash/union';
 
-export default class Guardian extends Smith {
+export default class Guardian extends OldSmith {
     gate = { ...EMPTY_CONSTRUCT }
     wall = { ...EMPTY_CONSTRUCT }
     tower = { ...EMPTY_CONSTRUCT }

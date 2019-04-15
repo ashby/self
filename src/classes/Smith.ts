@@ -47,7 +47,7 @@ export class OldSmith extends Self {
     denial = { ...EMPTY_SHIELD }
     sarcasm = { ...EMPTY_SHIELD }
     confusion = { ...EMPTY_SHIELD }
-    get smith() { return this.seeShields() }
+    //get smith() { return this.seeShields() }
     seeShields = () => ( { 
         silence: this.silence,
         denial: this.denial,

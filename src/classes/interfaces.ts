@@ -42,9 +42,11 @@ declare class Smith extends Self {
     increaseArmor: Function
     removeArmor: Function
 }
+
 interface Construct {
     boundary: Array<string>
 }
+
 declare class Guardian extends Smith {
     gate: Construct
     wall: Construct
@@ -58,11 +60,25 @@ declare class Guardian extends Smith {
     removeBoundary: Function        
 }
 
+interface Oath {
+    loyalty: Array<string>
+}
+
+declare class Paladin extends Guardian {
+    pledge: Oath
+    campaign: Oath
+    crusade: Oath
+    seeOaths: Function
+    public handleLoyalty: Function
+    accessLoyalty: Function
+    createLoyalty: Function
+    increaseLoyalty: Function
+    removeLoyalty: Function
+}
+
 declare class Summoner extends Self {
     public summonGuard: Function
     public dismissGuard: Function
-    public summonKnight: Function
-    public dismissKnight: Function
 }
 
 interface Virtue {
@@ -87,12 +103,17 @@ declare class Seeker extends Summoner {
     removeAcceptance: Function          
 }
 
+declare class Devout extends Summoner {
+    public summonKnight: Function
+    public dismissKnight: Function
+}
+
 interface Act {
     courage: Array<string>
     compassion: Array<string>
 }
 
-declare class Volunteer extends Seeker {
+declare class Volunteer extends Devout {
     service: Act
     support: Act
     sacrifice: Act
@@ -109,18 +130,43 @@ declare class Volunteer extends Seeker {
     removeCompassion: Function
 }
 
-interface Oath {
-    loyalty: Array<string>
+interface Affliction {
+    trauma: Array<string>
+    toxicity: Array<string>
 }
 
-declare class Paladin extends Guardian {
-    pledge: Oath
-    campaign: Oath
-    crusade: Oath
-    seeOaths: Function
-    public handleLoyalty: Function
-    accessLoyalty: Function
-    createLoyalty: Function
-    increaseLoyalty: Function
-    removeLoyalty: Function
+declare class Victim extends Volunteer {
+    scar: Affliction
+    gash: Affliction
+    infection: Affliction
+    tremor: Affliction
+    nightmare: Affliction
+    delirium: Affliction
+    public seeAfflictions: Function
+    public handleTrauma: Function
+    accessTrauma: Function
+    createTrauma: Function
+    increaseTrauma: Function
+    removeTrauma: Function
+    public handleToxicity: Function
+    accessToxicity: Function
+    createToxicity: Function
+    increaseToxicity: Function
+    removeToxicity: Function
+}
+
+interface Stigmata {
+    suffering: Array<string>
+}
+
+declare class Martyr extends Victim {
+    nail: Stigmata
+    crown: Stigmata
+    cross: Stigmata
+    public seeStigmatas: Function
+    public handleSuffering: Function
+    accessSuffering: Function
+    createSuffering: Function
+    increaseSuffering: Function
+    removeSuffering: Function
 }

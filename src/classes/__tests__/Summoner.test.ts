@@ -27,7 +27,7 @@ const testGuardSummon = async ( Ash, boundary ) => {
 }
 
 const testGuardDismiss = async ( Ash, boundary ) => {
-    await Ash.dismissGuard();
+    await Ash.dismissGuard( boundary );
     expect( global.Guard ).toBe( undefined );
 
     expect( api.deleteBoundary ).toBeCalled();

@@ -16,23 +16,7 @@ export default class Summoner extends Self {
             global.removeGuardian();
             return Promise.resolve( true );
         } else {
-            return Promise.reject();
-        }
-    }
-    public summonKnight = async ( loyalty ) => {
-        global.getPaladin();
-        await Knight.buildBoundary( loyalty );
-        return Promise.resolve( loyalty );
-    }
-    public dismissKnight = async ( loyalty ) => {
-        const Knight = global.Knight;
-        const hasKnight = !!Knight && isEqual( Knight.pledge.loyalty, loyalty );
-        if( hasKnight ) {
-            await Knight.removeBoundary();
-            global.removeGuardian();
-            return Promise.resolve( true );
-        } else {
-            return Promise.reject();
+            return false;
         }
     }
 }

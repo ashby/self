@@ -1,5 +1,3 @@
-// import 'src/classes/interfaces';
-
 type GetGuardian = Function
 type RemoveGuardian = Function
 type GetPaladin = Function

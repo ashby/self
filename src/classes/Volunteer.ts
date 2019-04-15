@@ -1,10 +1,9 @@
 import * as api from 'src/api';
 import { EMPTY_ACT } from 'src/constants';
 import * as union from 'lodash/union';
-import Summoner from './Summoner';
-import * as isEqual from 'lodash/isEqual';
+import Self from './Self';
 
-export default class Volunteer extends Summoner {
+export default class Volunteer extends Self {
     service = { ...EMPTY_ACT }
     sacrifice = { ...EMPTY_ACT }
     support = { ...EMPTY_ACT }
@@ -22,15 +21,6 @@ export default class Volunteer extends Summoner {
         this[ act ].compassion = union( this[ act ].compassion, compassion );
         return Promise.resolve( this[ act ].compassion ); 
     }
-    private handleKnight = async ( oath ) => {
-        const Knight = global.Knight;
-        const hasKnight = !!Knight && isEqual( Knight.pledge.loyalty, oath );
-        if( hasKnight ) {
-            return this.dismissKnight();
-        } else {
-            return false;
-        }
-    }
     accessCourage = async () => api.getCourage( this.route )
                         .then( response => this.handleCourage( 'support', response ) )
     createCourage = async courage => api.postCourage( this.route, courage )
@@ -41,25 +31,25 @@ export default class Volunteer extends Summoner {
                         .then( () => 
                             [ 'support', 'service', 'sacrifice' ].map( part => this[ part ].courage = { ...EMPTY_ACT }.courage ) 
                         )
-                        .catch( async error => {
-                            await this.summonKnight( error );
-                            return new Error( error );
-                        } )  
+                        // .catch( async error => {
+                        //     await this.summonKnight( error );
+                        //     return new Error( error );
+                        // } )  
     accessCompassion = async () => api.getCompassion( this.route )
                         .then( async response => {
-                            await this.handleKnight( response );
+                            //await this.handleKnight( response );
                             const compassion = await this.handleCompassion( 'support', response );
                             return compassion; 
                         } )
     createCompassion = async compassion => api.postCompassion( this.route, compassion )
                         .then( async response => {
-                            await this.handleKnight( response );
+                            //await this.handleKnight( response );
                             const compassion = await this.handleCompassion( 'service', response );
                             return compassion; 
                         } )
     increaseCompassion = async compassion => api.putCompassion( this.route, compassion )
                         .then( async response => {
-                            await this.handleKnight( response );
+                            //await this.handleKnight( response );
                             const compassion = await this.handleCompassion( 'sacrifice', response );
                             return compassion; 
                         }  )
@@ -67,8 +57,8 @@ export default class Volunteer extends Summoner {
                         .then( () => 
                             [ 'support', 'service', 'sacrifice' ].map( part => this[ part ].compassion = { ...EMPTY_ACT }.compassion ) 
                         )
-                        .catch( async error => {
-                            await this.summonKnight( error );
-                            return new Error( error );
-                        } )               
+                        // .catch( async error => {
+                        //     await this.summonKnight( error );
+                        //     return new Error( error );
+                        // } )               
 }

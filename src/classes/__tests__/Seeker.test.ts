@@ -98,7 +98,7 @@ describe( 'Seeker Guard::', () => {
         spyOn( api, `getVulnerability` ).and.returnValue( Promise.resolve( MIND_VULNERABILITY ) );
         spyOn( api, `postVulnerability` ).and.returnValue( Promise.resolve( SOUL_VULNERABILITY ) );
         spyOn( api, `putVulnerability` ).and.returnValue( Promise.resolve( LOVE_VULNERABILITY ) );
-        spyOn( api, `deleteVulnerability` ).and.returnValue( Promise.reject( BOUNDARY ) );
+        spyOn( api, `deleteVulnerability` ).and.returnValue( Promise.reject( [ BOUNDARY ] ) );
         spyOn( api, 'putAnger' ).and.returnValue( Promise.resolve( BOUNDARY ) );
         spyOn( api, 'putSelfPity' ).and.returnValue( Promise.resolve( BOUNDARY ) );
         spyOn( api, 'putArmor' ).and.returnValue( Promise.resolve( BOUNDARY ) );

@@ -2,7 +2,6 @@ import * as api from 'src/api';
 import { EMPTY_VIRTUE } from 'src/constants';
 import * as union from 'lodash/union';
 import Summoner from './Summoner';
-import * as isEqual from 'lodash/isEqual';
 
 export default class Seeker extends Summoner {
     soul = { ...EMPTY_VIRTUE }
@@ -46,7 +45,7 @@ export default class Seeker extends Summoner {
                         .then( async response => {
                             await this.dismissGuard( response );
                             const acceptance = await this.handleAcceptance( 'soul', response );
-                            return acceptance; 
+                            return acceptance;
                         } )
     increaseAcceptance = async acceptance => api.putAcceptance( this.route, acceptance )
                         .then( async response => {

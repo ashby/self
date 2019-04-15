@@ -4,6 +4,10 @@ import * as union from 'lodash/union';
 import Summoner from './Summoner';
 
 export default class Seeker extends Summoner {
+    constructor( route ) {
+        super();
+        this.route = route;
+    }
     soul = { ...EMPTY_VIRTUE }
     love = { ...EMPTY_VIRTUE }
     mind = { ...EMPTY_VIRTUE }

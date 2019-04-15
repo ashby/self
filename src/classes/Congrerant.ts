@@ -2,7 +2,7 @@ import Summoner from './Summoner';
 import 'src/utils/handle-knight';
 import * as isEqual from 'lodash/isEqual';
 
-export default class Devout extends Summoner {
+export default class Congrerant extends Summoner {
     public summonKnight = async ( loyalty ) => {
         global.getPaladin();
         await Knight.buildBoundary( loyalty );

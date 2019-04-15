@@ -9,6 +9,10 @@ import {
 import * as union from 'lodash/union';
 
 export default class Smith extends Self {
+    constructor( route ) {
+        super();
+        this.route = route;
+    }
     silence = { ...EMPTY_SHIELD }
     denial = { ...EMPTY_SHIELD }
     sarcasm = { ...EMPTY_SHIELD }
@@ -25,7 +29,7 @@ export default class Smith extends Self {
         this[ shield ].armor = union( this[ shield ].armor, armor );
         return Promise.resolve( this[ shield ].armor );
     }
-    accessArmor = async () => api.getArmor( this.path )
+    accessArmor = async () => api.getArmor( this.route )
         .then( response => Promise.reject( response ) )
         .catch( async ( error ) => this.handleArmor( 'sarcasm', error, RESENTMENT_TYPE_ANGER ) )
     createArmor = async armor => api.postArmor( this.route, armor )
@@ -45,7 +49,7 @@ export default class Smith extends Self {
             if ( acknowldegement ) {
                 partKeys.map( async part => await api.postVulnerability( this.route, part ) );      
                 [ 'silence', 'denial', 'sarcasm', 'confusion' ].map( armorType => this[ armorType ] = { ...EMPTY_SHIELD } );
-                const vulnerability = await api.getVulnerability( this.path );
+                const vulnerability = await api.getVulnerability( this.route );
                 return Promise.resolve( vulnerability );
             }
         } )

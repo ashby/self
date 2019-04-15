@@ -4,6 +4,10 @@ import * as union from 'lodash/union';
 import Self from './Self';
 
 export default class Volunteer extends Self {
+    constructor( route ) {
+        super();
+        this.route = route;
+    }
     service = { ...EMPTY_ACT }
     sacrifice = { ...EMPTY_ACT }
     support = { ...EMPTY_ACT }

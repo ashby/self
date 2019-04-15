@@ -1,4 +1,3 @@
-import Guardian from './Guardian';
 import * as api from 'src/api';
 import { 
     EMPTY_PART,
@@ -11,7 +10,6 @@ import * as union from 'lodash/union';
 
 export default class Self {
     route = undefined
-    set path( route ) { this.route = route }
     brain = { ...EMPTY_PART }
     face = { ...EMPTY_PART }
     mouth = { ...EMPTY_PART }

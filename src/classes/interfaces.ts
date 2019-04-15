@@ -62,9 +62,10 @@ declare class Guardian extends Smith {
 
 interface Oath {
     loyalty: Array<string>
+    honor: Array<string>
 }
 
-declare class Paladin extends Guardian {
+declare class Paladin extends Congrerant {
     pledge: Oath
     campaign: Oath
     crusade: Oath
@@ -74,6 +75,10 @@ declare class Paladin extends Guardian {
     createLoyalty: Function
     increaseLoyalty: Function
     removeLoyalty: Function
+    accessHoner: Function
+    createHonor: Function
+    increaseHonor: Function
+    removeHonor: Function
 }
 
 declare class Summoner extends Self {
@@ -103,9 +108,9 @@ declare class Seeker extends Summoner {
     removeAcceptance: Function          
 }
 
-declare class Devout extends Summoner {
-    public summonKnight: Function
-    public dismissKnight: Function
+declare class Congrerant extends Summoner {
+    public dubKnight: Function
+    public debaseKnight: Function
 }
 
 interface Act {

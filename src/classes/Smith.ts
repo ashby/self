@@ -9,23 +9,32 @@ import {
 } from 'src/constants';
 import * as union from 'lodash/union';
 
+const SHIELDS_NAME = 'shields';
+
 export default class Smith extends Character {
     EMPTY_ATTRIBUTE = EMPTY_SHIELD
     ATTRIBUTE = 'shield'
     ATTRIBUTES = [ 'silence', 'denial', 'sarcasm', 'confusion' ]
+    ATTRIBUTES_NAME = SHIELDS_NAME
     API = [ 'armor' ]
+    API_KEY = 'armor'
     ROUTE = 'strength'
-    accessThen = async response => Promise.reject( response )
-    accessCatch = async error => this.handleAttribute( 'sarcasm', error, RESENTMENT_TYPE_ANGER )
-    createThen = async response => Promise.reject( response )
-    createCatch = async error => this.handleAttribute( 'silence', error, RESENTMENT_TYPE_FEAR )
-    increaseThen = async ( response, resentment ) => {
+    constructor( route ) {
+        super();
+        this.route = route;
+        this.finishCharacterSheet();
+    }
+    accessActionThen = async response => Promise.reject( response )
+    accessActionCatch = async error => this.handleAttribute( 'sarcasm', error, RESENTMENT_TYPE_ANGER )
+    createActionThen = async response => Promise.reject( response )
+    createActionCatch = async error => this.handleAttribute( 'silence', error, RESENTMENT_TYPE_FEAR )
+    increaseActionThen = async ( response, resentment ) => {
         const armor = await this.handleAttribute( 'denial', response, resentment )
         return Promise.reject( armor );
     }
-    increaseCatch = async ( error, resentment ) => this.handleAttribute( 'confusion', error, resentment ) 
-    removeThen = async () => {
-        const attributes = this.seeAttributes();
+    increaseActionCatch = async ( error, resentment ) => this.handleAttribute( 'confusion', error, resentment ) 
+    removeActionThen = async () => {
+        const attributes = this.seeAttributes( SHIELDS_NAME );
         const attributeKeys = Object.keys( attributes );
         const acknowldegement = await this.handleResentment( RESENTMENT_TYPE_ACKNOWLEDGE );
         if ( acknowldegement ) {
@@ -35,7 +44,7 @@ export default class Smith extends Character {
             return Promise.resolve( vulnerability );
         }
     }
-    removeCatch = async error => this.handleResentment( error )
+    removeActionCatch = async error => this.handleResentment( error )
 }
 
 export class OldSmith extends Self {

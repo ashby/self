@@ -1,4 +1,5 @@
 import getSelf from '../../';
+import OldSmith from '../Smith';
 import * as api from 'src/api';
 import { expectEmptyPartsExcept, expectEmptyShieldsExcept } from 'app-test-utils';
 import { RESENTMENT_TYPE_SADNESS } from 'src/constants';
@@ -10,7 +11,7 @@ const NEW_ARMOR = 'i\'m fine';
 describe( 'Smith armor::', () => {{}
     let Ash, shields, shieldKeys, sarcasmArmor, silenceArmor, denialArmor, handleShieldsExceptions;
     beforeEach( () => {
-        Ash = getSelf();
+        Ash = new OldSmith();
         shields = Ash.seeShields();
         shieldKeys = Object.keys( shields );
         sarcasmArmor = [ OLD_ARMOR, ARMOR, NEW_ARMOR ];

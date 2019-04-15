@@ -118,7 +118,7 @@ interface Act {
     compassion: Array<string>
 }
 
-declare class Volunteer extends Devout {
+declare class Volunteer extends Congrerant {
     service: Act
     support: Act
     sacrifice: Act

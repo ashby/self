@@ -1,4 +1,5 @@
 import Self from './Self';
+import Character from './Character';
 import * as api from 'src/api';
 import { 
     EMPTY_SHIELD,
@@ -8,7 +9,36 @@ import {
 } from 'src/constants';
 import * as union from 'lodash/union';
 
-export default class Smith extends Self {
+export default class Smith extends Character {
+    EMPTY_ATTRIBUTE = EMPTY_SHIELD
+    ATTRIBUTE = 'shield'
+    ATTRIBUTES = [ 'silence', 'denial', 'sarcasm', 'confusion' ]
+    API = [ 'armor' ]
+    ROUTE = 'strength'
+    accessThen = async response => Promise.reject( response )
+    accessCatch = async error => this.handleAttribute( 'sarcasm', error, RESENTMENT_TYPE_ANGER )
+    createThen = async response => Promise.reject( response )
+    createCatch = async error => this.handleAttribute( 'silence', error, RESENTMENT_TYPE_FEAR )
+    increaseThen = async ( response, resentment ) => {
+        const armor = await this.handleAttribute( 'denial', response, resentment )
+        return Promise.reject( armor );
+    }
+    increaseCatch = async ( error, resentment ) => this.handleAttribute( 'confusion', error, resentment ) 
+    removeThen = async () => {
+        const attributes = this.seeAttributes();
+        const attributeKeys = Object.keys( attributes );
+        const acknowldegement = await this.handleResentment( RESENTMENT_TYPE_ACKNOWLEDGE );
+        if ( acknowldegement ) {
+            attributeKeys.map( async attribute => await api.postVulnerability( this.route, attribute ) );      
+            attributeKeys.map( attribute => this[ attribute ] = { ...this.EMPTY_ATTRIBUTE } );
+            const vulnerability = await api.getVulnerability( this.route );
+            return Promise.resolve( vulnerability );
+        }
+    }
+    removeCatch = async error => this.handleResentment( error )
+}
+
+export class OldSmith extends Self {
     constructor( route ) {
         super();
         this.route = route;

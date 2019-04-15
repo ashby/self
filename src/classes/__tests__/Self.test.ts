@@ -77,14 +77,14 @@ describe( 'Self anger ::', () => {
         let anger;
         anger = await Ash.createAnger( ANGER );
         expect( anger ).toEqual( gutAnger );
-        anger = await Ash.updateAnger( NEW_ANGER );
+        anger = await Ash.increaseAnger( NEW_ANGER );
         expect( anger ).toEqual( mouthAnger );
-        anger = await Ash.getAnger();
+        anger = await Ash.accessAnger();
         expect( anger ).toEqual( brainAnger );
         expect.assertions( 3 );
     } );
-    it( 'gets anger from the brain', async () => {
-        await Ash.getAnger();
+    it( 'accesses anger from the brain', async () => {
+        await Ash.accessAnger();
         expect( api.getAnger ).toBeCalled();
         expect( Ash.brain.anger ).toEqual( brainAnger );
         handlePartsExceptions( [ 'brain' ] );
@@ -97,9 +97,9 @@ describe( 'Self anger ::', () => {
         handlePartsExceptions( [ 'gut' ] );
         expect.assertions( 2 + partKeys.length - 1 );
     } );
-    it( 'updates anger in the mouth', async () => {
+    it( 'increases anger in the mouth', async () => {
         await Ash.createAnger( ANGER );
-        await Ash.updateAnger( NEW_ANGER );
+        await Ash.increaseAnger( NEW_ANGER );
         expect( api.putAnger ).toBeCalled();
         expect( Ash.gut.anger ).toEqual( gutAnger );
         expect( Ash.mouth.anger ).toEqual( mouthAnger );
@@ -108,8 +108,8 @@ describe( 'Self anger ::', () => {
     } );
     it( 'removes anger from brain, gut and mouth', async () => {
         await Ash.createAnger( ANGER );
-        await Ash.updateAnger( NEW_ANGER );
-        await Ash.getAnger();
+        await Ash.increaseAnger( NEW_ANGER );
+        await Ash.accessAnger();
         expect( Ash.gut.anger ).toEqual( gutAnger );
         expect( Ash.mouth.anger ).toEqual( mouthAnger );
         expect( Ash.brain.anger ).toEqual( brainAnger );
@@ -139,14 +139,14 @@ describe( 'Self self-pity ::', () => {
         let selfPity;
         selfPity = await Ash.createSelfPity( ANGER );
         expect( selfPity ).toEqual( sternumSelfPity );
-        selfPity = await Ash.updateSelfPity( NEW_ANGER );
+        selfPity = await Ash.increaseSelfPity( NEW_ANGER );
         expect( selfPity ).toEqual( faceSelfPity );
-        selfPity = await Ash.getSelfPity();
+        selfPity = await Ash.accessSelfPity();
         expect( selfPity ).toEqual( brainSelfPity );
         expect.assertions( 3 );
     } );
-    it( 'gets self-pity from the brain', async () => {
-        await Ash.getSelfPity();
+    it( 'accesses self-pity from the brain', async () => {
+        await Ash.accessSelfPity();
         expect( api.getSelfPity ).toBeCalled();
         expect( Ash.brain.selfPity ).toEqual( brainSelfPity );
         handlePartsExceptions( [ 'brain' ] );
@@ -159,9 +159,9 @@ describe( 'Self self-pity ::', () => {
         handlePartsExceptions( [ 'sternum' ] );
         expect.assertions( 2 + partKeys.length - 1 );
     } );
-    it( 'updates self-pity in the face', async () => {
+    it( 'increases self-pity in the face', async () => {
         await Ash.createSelfPity( SELF_PITY );
-        await Ash.updateSelfPity( NEW_SELF_PITY );
+        await Ash.increaseSelfPity( NEW_SELF_PITY );
         expect( api.putSelfPity ).toBeCalled();
         expect( Ash.sternum.selfPity ).toEqual( sternumSelfPity );
         expect( Ash.face.selfPity ).toEqual( faceSelfPity );
@@ -170,8 +170,8 @@ describe( 'Self self-pity ::', () => {
     } );
     it( 'removes self-pity from brain, sternum and face', async () => {
         await Ash.createSelfPity( SELF_PITY );
-        await Ash.updateSelfPity( NEW_SELF_PITY );
-        await Ash.getSelfPity();
+        await Ash.increaseSelfPity( NEW_SELF_PITY );
+        await Ash.accessSelfPity();
         expect( Ash.sternum.selfPity ).toEqual( sternumSelfPity );
         expect( Ash.face.selfPity ).toEqual( faceSelfPity );
         expect( Ash.brain.selfPity ).toEqual( brainSelfPity );

@@ -28,16 +28,16 @@ describe( 'Smith armor::', () => {{}
         let armor;
         armor = await Ash.createArmor( ARMOR );
         expect( armor ).toEqual( silenceArmor );
-        armor = await Ash.updateArmor( NEW_ARMOR, RESENTMENT_TYPE_SADNESS );
+        armor = await Ash.increaseArmor( NEW_ARMOR, RESENTMENT_TYPE_SADNESS );
         expect( armor ).toEqual( denialArmor );
-        armor = await Ash.getArmor();
+        armor = await Ash.accessArmor();
         expect( armor ).toEqual( sarcasmArmor );
         expect.assertions( 3 );
     } )
-    it( 'gets armor in the form of sarcasm', async () => {
+    it( 'accesses armor in the form of sarcasm', async () => {
         spyOn( api, 'putAnger' ).and.returnValue( Promise.resolve( sarcasmArmor ) );
         spyOn( api, 'putSelfPity' ).and.returnValue( Promise.resolve( sarcasmArmor ) );
-        await Ash.getArmor();
+        await Ash.accessArmor();
         expect( api.getArmor ).toBeCalled();
         expect( Ash.sarcasm.armor ).toEqual( sarcasmArmor );
         handleShieldsExceptions( [ 'sarcasm' ] );
@@ -52,11 +52,11 @@ describe( 'Smith armor::', () => {{}
         handleShieldsExceptions( [ 'silence' ] );
         expect.assertions( 2 + shieldKeys.length - 1 );
     } );
-    it( 'updates armor in the form of denial and confusion', async () => {
+    it( 'increases armor in the form of denial and confusion', async () => {
         spyOn( api, 'putAnger' ).and.returnValue( Promise.resolve( denialArmor ) );
         spyOn( api, 'putSelfPity' ).and.returnValue( Promise.resolve( denialArmor ) );
         await Ash.createArmor( ARMOR );
-        await Ash.updateArmor( NEW_ARMOR, RESENTMENT_TYPE_SADNESS );
+        await Ash.increaseArmor( NEW_ARMOR, RESENTMENT_TYPE_SADNESS );
         expect( api.putArmor ).toBeCalled();
         expect( Ash.silence.armor ).toEqual( silenceArmor );
         expect( Ash.denial.armor ).toEqual( denialArmor );
@@ -72,8 +72,8 @@ describe( 'Smith armor::', () => {{}
         spyOn( api, 'postVulnerability' ).and.returnValue( Promise.resolve() );
         spyOn( api, 'getVulnerability' ).and.returnValue( Promise.resolve( sarcasmArmor ) );
         await Ash.createArmor( ARMOR );
-        await Ash.updateArmor( NEW_ARMOR, RESENTMENT_TYPE_SADNESS );
-        await Ash.getArmor();
+        await Ash.increaseArmor( NEW_ARMOR, RESENTMENT_TYPE_SADNESS );
+        await Ash.accessArmor();
         expect( Ash.silence.armor ).toEqual( silenceArmor );
         expect( Ash.denial.armor ).toEqual( denialArmor );
         expect( Ash.sarcasm.armor ).toEqual( sarcasmArmor );

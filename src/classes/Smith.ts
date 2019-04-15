@@ -25,13 +25,13 @@ export default class Smith extends Self {
         this[ shield ].armor = union( this[ shield ].armor, armor );
         return Promise.resolve( this[ shield ].armor );
     }
-    getArmor = async () => api.getArmor( this.path )
+    accessArmor = async () => api.getArmor( this.path )
         .then( response => Promise.reject( response ) )
         .catch( async ( error ) => this.handleArmor( 'sarcasm', error, RESENTMENT_TYPE_ANGER ) )
     createArmor = async armor => api.postArmor( this.route, armor )
         .then( response => Promise.reject( response ) )
         .catch( error => this.handleArmor( 'silence', error, RESENTMENT_TYPE_FEAR ) )
-    updateArmor = async ( armor, type = '' ) => api.putArmor( this.route, armor )
+    increaseArmor = async ( armor, type = '' ) => api.putArmor( this.route, armor )
         .then( async ( response ) => {
             const armor = await this.handleArmor( 'denial', response, type )
             return Promise.reject( armor );

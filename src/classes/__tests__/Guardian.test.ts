@@ -30,9 +30,9 @@ describe( 'Guardian boundary::', () => {{}
         let boundary;
         boundary = await Ash.createBoundary( BOUNDARY );
         expect( boundary ).toEqual( gateBoundary );
-        boundary = await Ash.updateBoundary( NEW_BOUNDARY );
+        boundary = await Ash.increaseBoundary( NEW_BOUNDARY );
         expect( boundary ).toEqual( wallBoundary );
-        boundary = await Ash.getBoundary();
+        boundary = await Ash.accessBoundary();
         expect( boundary ).toEqual( towerBoundary );
         expect.assertions( 3 );
     } )
@@ -48,8 +48,8 @@ describe( 'Guardian boundary::', () => {{}
         expect( shields.confusion.armor ).toEqual( wallBoundary );
         expect.assertions( 3 );
     })
-    it( 'gets boundary with tower', async () => {
-        await Ash.getBoundary();
+    it( 'accesses boundary with tower', async () => {
+        await Ash.accessBoundary();
         expect( api.getBoundary ).toBeCalled();
         expect( Ash.tower.boundary ).toEqual( towerBoundary );
         handleConstructsExceptions( [ 'tower' ] );
@@ -58,13 +58,13 @@ describe( 'Guardian boundary::', () => {{}
     it( 'creates boundary with gate', async () => {
         await Ash.createBoundary( BOUNDARY );
         expect( api.postBoundary ).toBeCalled(); 
-       expect( Ash.gate.boundary ).toEqual( gateBoundary );
+        expect( Ash.gate.boundary ).toEqual( gateBoundary );
         handleConstructsExceptions( [ 'gate' ] );
         expect.assertions( 2 + constructKeys.length - 1 );
     } );
-    it( 'updates boundary with wall', async () => {
+    it( 'increases boundary with wall', async () => {
         await Ash.createBoundary( BOUNDARY );
-        await Ash.updateBoundary( NEW_BOUNDARY, RESENTMENT_TYPE_SADNESS );
+        await Ash.increaseBoundary( NEW_BOUNDARY, RESENTMENT_TYPE_SADNESS );
         expect( api.putBoundary ).toBeCalled();
         expect( Ash.gate.boundary ).toEqual( gateBoundary );
         expect( Ash.wall.boundary ).toEqual( wallBoundary );
@@ -80,8 +80,8 @@ describe( 'Guardian boundary::', () => {{}
         spyOn( api, 'getVulnerability' ).and.returnValue( Promise.resolve( towerBoundary ) );
         spyOn( api, 'deleteArmor' ).and.returnValue( Promise.resolve() );
         await Ash.createBoundary( BOUNDARY );
-        await Ash.updateBoundary( NEW_BOUNDARY, RESENTMENT_TYPE_SADNESS );
-        await Ash.getBoundary();
+        await Ash.increaseBoundary( NEW_BOUNDARY, RESENTMENT_TYPE_SADNESS );
+        await Ash.accessBoundary();
         expect( Ash.gate.boundary ).toEqual( gateBoundary );
         expect( Ash.wall.boundary ).toEqual( wallBoundary );
         expect( Ash.tower.boundary ).toEqual( towerBoundary );

@@ -15,14 +15,14 @@ declare class Self {
     seeParts: Function
     public handleResentment: Function
     public handleAnger: Function
-    getAnger: Function
+    accessAnger: Function
     createAnger: Function
-    updateAnger: Function
+    increaseAnger: Function
     removeAnger: Function
     public handleSelfPity: Function
-    getSelfPity: Function
+    accessSelfPity: Function
     createSelfPity: Function
-    updateSelfPity: Function
+    increaseSelfPity: Function
     removeSelfPity: Function
 }
 
@@ -37,9 +37,9 @@ declare class Smith extends Self {
     confusion: Shield
     seeShields: Function
     public handleArmor: Function
-    getArmor: Function
+    accessArmor: Function
     createArmor: Function
-    updateArmor: Function
+    increaseArmor: Function
     removeArmor: Function
 }
 interface Construct {
@@ -52,14 +52,17 @@ declare class Guardian extends Smith {
     seeConstructs: Function
     public buildBoundary: Function
     public handleBoundary: Function
-    getBoundary: Function
+    accessBoundary: Function
     createBoundary: Function
-    updateBoundary: Function
+    increaseBoundary: Function
     removeBoundary: Function        
 }
 
 declare class Summoner extends Self {
     public summonGuard: Function
+    public dismissGuard: Function
+    public summonKnight: Function
+    public dismissKnight: Function
 }
 
 interface Virtue {
@@ -74,13 +77,50 @@ declare class Seeker extends Summoner {
     seeVirtues: Function
     private handleVulnerability: Function
     private handleAcceptance: Function
-    private handleGuard: Function
-    getVulnerability: Function
+    accessVulnerability: Function
     createVulnerability: Function
-    updateVulnerability: Function
+    increaseVulnerability: Function
     removeVulnerability: Function
-    getAcceptance: Function
+    accessAcceptance: Function
     createAcceptance: Function
-    updateAcceptance: Function
+    increaseAcceptance: Function
     removeAcceptance: Function          
+}
+
+interface Act {
+    courage: Array<string>
+    compassion: Array<string>
+}
+
+declare class Volunteer extends Seeker {
+    service: Act
+    support: Act
+    sacrifice: Act
+    seeActs: Function
+    public handleCourage: Function
+    accessCourage: Function
+    createCourage: Function
+    increaseCourage: Function
+    removeCourage: Function
+    public handleCompassion: Function
+    accessCompassion: Function
+    createCompassion: Function
+    increaseCompassion: Function
+    removeCompassion: Function
+}
+
+interface Oath {
+    loyalty: Array<string>
+}
+
+declare class Paladin extends Guardian {
+    pledge: Oath
+    campaign: Oath
+    crusade: Oath
+    seeOaths: Function
+    public handleLoyalty: Function
+    accessLoyalty: Function
+    createLoyalty: Function
+    increaseLoyalty: Function
+    removeLoyalty: Function
 }

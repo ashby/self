@@ -22,20 +22,11 @@ export default class Seeker extends Summoner {
         this[ virtue ].acceptance = union( this[ virtue ].acceptance, acceptance );
         return Promise.resolve( this[ virtue ].acceptance ); 
     }
-    private handleGuard = async ( boundary ) => {
-        const Guard = global.Guard;
-        const hasGuard = !!Guard && isEqual( Guard.gate.boundary, boundary );
-        if( hasGuard ) {
-            return this.dismissGuard();
-        } else {
-            return false;
-        }
-    }
-    getVulnerability = async () => api.getVulnerability( this.route )
+    accessVulnerability = async () => api.getVulnerability( this.route )
                         .then( response => this.handleVulnerability( 'mind', response ) )
     createVulnerability = async vulnerability => api.postVulnerability( this.route, vulnerability )
                         .then( response => this.handleVulnerability( 'soul', response )  )
-    updateVulnerability = async vulnerability => api.putVulnerability( this.route, vulnerability )
+    increaseVulnerability = async vulnerability => api.putVulnerability( this.route, vulnerability )
                         .then( response => this.handleVulnerability( 'love', response )  )
     removeVulnerability = async () => api.deleteVulnerability( this.route )
                         .then( () => 
@@ -45,21 +36,21 @@ export default class Seeker extends Summoner {
                             await this.summonGuard( error );
                             return new Error( error );
                         } )  
-    getAcceptance = async () => api.getAcceptance( this.route )
+    accessAcceptance = async () => api.getAcceptance( this.route )
                         .then( async response => {
-                            await this.handleGuard( response );
+                            await this.dismissGuard( response );
                             const acceptance = await this.handleAcceptance( 'mind', response );
                             return acceptance; 
                         } )
     createAcceptance = async acceptance => api.postAcceptance( this.route, acceptance )
                         .then( async response => {
-                            await this.handleGuard( response );
+                            await this.dismissGuard( response );
                             const acceptance = await this.handleAcceptance( 'soul', response );
                             return acceptance; 
                         } )
-    updateAcceptance = async acceptance => api.putAcceptance( this.route, acceptance )
+    increaseAcceptance = async acceptance => api.putAcceptance( this.route, acceptance )
                         .then( async response => {
-                            await this.handleGuard( response );
+                            await this.dismissGuard( response );
                             const acceptance = await this.handleAcceptance( 'love', response );
                             return acceptance; 
                         }  )

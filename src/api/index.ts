@@ -4,3 +4,6 @@ export * from './armor';
 export * from './selfPity';
 export * from './vulnerability';
 export * from './acceptance';
+export * from './courage';
+export * from './compassion';
+export * from './loyalty';

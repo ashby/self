@@ -35,14 +35,14 @@ const testSeeker = ( type ) => {
         let truth;
         truth = await Ash[ `create${apiType}` ]( fixture[ FIXTURE_TYPE ] );
         expect( truth ).toEqual( fixture[ `SOUL_${FIXTURE_TYPE}` ] );
-        truth = await Ash.updateVulnerability( fixture[ `NEW_${FIXTURE_TYPE}` ] );
+        truth = await Ash.increaseVulnerability( fixture[ `NEW_${FIXTURE_TYPE}` ] );
         expect( truth ).toEqual( fixture[ `LOVE_${FIXTURE_TYPE}` ] );
-        truth = await Ash.getVulnerability();
+        truth = await Ash.accessVulnerability();
         expect( truth ).toEqual( fixture[ `MIND_${FIXTURE_TYPE}` ] );
         //expect.assertions( 3 ); wth
     } );
-    it( `gets ${type} from the mind`, async () => {
-        await Ash[ `get${apiType}` ]();
+    it( `accesses ${type} from the mind`, async () => {
+        await Ash[ `access${apiType}` ]();
         expect( api[ `get${apiType}` ] ).toBeCalled();
         expect( Ash.mind[ type ] ).toEqual( fixture[  `MIND_${FIXTURE_TYPE}` ] );
         handleVirtuesExceptions( [ 'mind' ] );
@@ -55,9 +55,9 @@ const testSeeker = ( type ) => {
         handleVirtuesExceptions( [ 'soul' ] );
         expect.assertions( 2 + virtueKeys.length - 1 );
     } );
-    it( `updates ${type} in love`, async () => {
+    it( `increases ${type} in love`, async () => {
         await Ash[ `create${apiType}` ]( fixture[ FIXTURE_TYPE ] );
-        await Ash[ `update${apiType}` ]( fixture[ `NEW_${FIXTURE_TYPE}` ] );
+        await Ash[ `increase${apiType}` ]( fixture[ `NEW_${FIXTURE_TYPE}` ] );
         expect( api[ `put${apiType}` ] ).toBeCalled();
         expect( Ash.soul[ type ] ).toEqual( fixture[ `SOUL_${FIXTURE_TYPE}` ] );
         expect( Ash.love[ type ] ).toEqual( fixture[ `LOVE_${FIXTURE_TYPE}` ] );
@@ -66,8 +66,8 @@ const testSeeker = ( type ) => {
     } );
     it( `removes ${type} from mind, soul and love`, async () => {
         await Ash[ `create${apiType}` ]( fixture[ FIXTURE_TYPE ] );
-        await Ash[ `update${apiType}` ]( fixture[ `NEW_${FIXTURE_TYPE}` ] );
-        await Ash[ `get${apiType}` ]();
+        await Ash[ `increase${apiType}` ]( fixture[ `NEW_${FIXTURE_TYPE}` ] );
+        await Ash[ `access${apiType}` ]();
         expect( Ash.soul[ type ] ).toEqual( fixture[ `SOUL_${FIXTURE_TYPE}` ] );
         expect( Ash.love[ type ] ).toEqual( fixture[ `LOVE_${FIXTURE_TYPE}` ] );
         expect( Ash.mind[ type ] ).toEqual( fixture[ `MIND_${FIXTURE_TYPE}` ] );
@@ -109,8 +109,8 @@ describe( 'Seeker Guard::', () => {
     } );
     it( 'can summon guard', async () => {
         await Ash.createVulnerability( VULNERABILITY );
-        await Ash.updateVulnerability( NEW_VULNERABILITY );
-        await Ash.getVulnerability();
+        await Ash.increaseVulnerability( NEW_VULNERABILITY );
+        await Ash.accessVulnerability();
         expect( Ash.soul.vulnerability ).toEqual( SOUL_VULNERABILITY );
         expect( Ash.love.vulnerability ).toEqual( LOVE_VULNERABILITY );
         expect( Ash.mind.vulnerability ).toEqual( MIND_VULNERABILITY );
@@ -131,7 +131,7 @@ describe( 'Seeker Guard::', () => {
         expect( parts.face.selfPity ).toEqual( BOUNDARY );
         const constructs = Guard.seeConstructs();
         expect( constructs.gate.boundary ).toEqual( BOUNDARY );
-        await Ash.getAcceptance();
+        await Ash.accessAcceptance();
         expect( global.Guard ).toBe( undefined );
         const virtues = Ash.seeVirtues();
         expect( api.deleteBoundary ).toBeCalled();

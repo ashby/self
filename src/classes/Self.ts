@@ -39,13 +39,13 @@ export default class Self {
                 return Promise.resolve( acknowledgement );
             case RESENTMENT_TYPE_SADNESS:
             case RESENTMENT_TYPE_FEAR:
-                selfPity = await this.updateSelfPity( resentment );
+                selfPity = await this.increaseSelfPity( resentment );
                 return Promise.resolve( { anger, selfPity } );
             case RESENTMENT_TYPE_ANGER:
             default:
-                const updateAnger = await this.updateAnger( resentment );
-                const updateSelfPity = await this.updateSelfPity( resentment);
-                [ anger, selfPity ] = await Promise.all( [ updateAnger, updateSelfPity ] );
+                const increaseAnger = await this.increaseAnger( resentment );
+                const increaseSelfPity = await this.increaseSelfPity( resentment);
+                [ anger, selfPity ] = await Promise.all( [ increaseAnger, increaseSelfPity ] );
                 return Promise.resolve( { anger, selfPity } );
         }
     }
@@ -53,11 +53,11 @@ export default class Self {
         this[ part ].anger = union( this[ part ].anger, anger );
         return Promise.resolve( this[ part ].anger );
     }
-    getAnger = async () => api.getAnger( this.route )
+    accessAnger = async () => api.getAnger( this.route )
                         .then( response => this.handleAnger( 'brain', response ) )
     createAnger = async anger => api.postAnger( this.route, anger )
                         .then( response => this.handleAnger( 'gut', response ) )
-    updateAnger = async anger => api.putAnger( this.route, anger )
+    increaseAnger = async anger => api.putAnger( this.route, anger )
                         .then( response => this.handleAnger( 'mouth', response ) )
     removeAnger = async () => api.deleteAnger( this.route )
                         .then( () => {
@@ -68,11 +68,11 @@ export default class Self {
         this[ part ].selfPity = union( this[ part ].selfPity, selfPity );
         return Promise.resolve( this[ part ].selfPity ); 
     }
-    getSelfPity = async () => api.getSelfPity( this.route )
+    accessSelfPity = async () => api.getSelfPity( this.route )
                         .then( response => this.handleSelfPity( 'brain', response ) )
     createSelfPity = async selfPity => api.postSelfPity( this.route, selfPity )
                         .then( response => this.handleSelfPity( 'sternum', response ) )
-    updateSelfPity = async selfPity => api.putSelfPity( this.route, selfPity )
+    increaseSelfPity = async selfPity => api.putSelfPity( this.route, selfPity )
                         .then( response => this.handleSelfPity( 'face', response ) )
     removeSelfPity = async () => api.deleteSelfPity( this.route )
                         .then( () => {

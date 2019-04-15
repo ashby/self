@@ -40,8 +40,12 @@ export default class Character extends Self {
         await this.handleResentment( resentment, value );
         const name = this.ATTRIBUTES_NAME;
         const apiKey = this.API_KEY;
-        const attributes = { ...this.attributes[ name ][ key ][ apiKey ] }; 
-        this.attributes[ name ][ key ][ apiKey ] = union( attributes, value );
+        const attribute = this.attributes[ name ][ key ];
+        const attributes = [ ...attribute[ apiKey ] ];
+        this.attributes[ name ][ key ] = {
+            ...attribute,
+            [ apiKey ]: union( attributes, value )
+        };
         return Promise.resolve( this.attributes[ name ][ key ][ apiKey ] );
     }
     public accessAction = ( key ) => api[ `get${this.apiKey( key )}` ]( this.route )

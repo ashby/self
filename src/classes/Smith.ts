@@ -39,7 +39,7 @@ export default class Smith extends Character {
         const acknowldegement = await this.handleResentment( RESENTMENT_TYPE_ACKNOWLEDGE );
         if ( acknowldegement ) {
             attributeKeys.map( async attribute => await api.postVulnerability( this.route, attribute ) );      
-            attributeKeys.map( attribute => this[ attribute ] = { ...this.EMPTY_ATTRIBUTE } );
+            attributeKeys.map( attribute => this.attributes[ this.ATTRIBUTES_NAME ][ attribute ] = { ...this.EMPTY_ATTRIBUTE } );
             const vulnerability = await api.getVulnerability( this.route );
             return Promise.resolve( vulnerability );
         }

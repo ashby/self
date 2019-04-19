@@ -26,6 +26,7 @@
 |honor   |   |   |   |   |
 |impatience   |   |   |   |   |
 |irritability   |   |   |   |   |
+|loyalty   |   |   |   |   |
 |pride   |✅   |   |   |   |
 |salvation   |✅   |   |   |   |
 |self-pity   |✅   |   |   |   |

@@ -35,7 +35,7 @@
 
 ***
 
-## Case
+## Cast
 
 |Character   |Self Initiative   |Native   |Web   |
 |---|---|---|---|

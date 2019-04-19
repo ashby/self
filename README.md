@@ -1,5 +1,7 @@
 # Self
 
+## Attributes
+
 |Attributes   |Higher Power   |Self Initiative   |Native   |Web   |
 |---|---|---|---|---|
 |defect   |✅   |   |   |   |
@@ -31,7 +33,11 @@
 |trauma   |✅   |   |   |   |
 |vulnerability   |✅   |   |   |   |
 
-|Cast   |Self Initiative   |Native   |Web   |
+***
+
+## Case
+
+|Character   |Self Initiative   |Native   |Web   |
 |---|---|---|---|
 |Congregant   |   |   |   |
 |Genie   |   |   |   |

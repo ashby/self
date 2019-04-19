@@ -11,6 +11,8 @@
 |resentment   |✅   |   |   |   |
 |strength   |✅   |   |   |   |
 
+## Sub-attributes
+
 |Sub-attributes   |Higher Power   |Self Initiative   |Native   |Web   |
 |---|---|---|---|---|
 |acceptance  |✅   |   |   |   |
@@ -35,7 +37,27 @@
 
 ***
 
-## Cast
+## Processes
+
+|Processes   |Higher Power   |Self Initiative   |Native   |Web   |
+|---|---|---|---|---|
+|act   |   |   |   |   |
+|affliction   |   |   |   |   |
+|body   |  |   |   |   |
+|construct   |   |   |   |   |
+|oath   |   |   |   |   |
+|shield   |   |   |   |   |
+|stigmata   |   |   |   |   |
+|virtue   |   |   |   |   |
+|wish   |   |   |   |   |
+
+***
+
+## Locations
+
+***
+
+## Characters
 
 |Character   |Self Initiative   |Native   |Web   |
 |---|---|---|---|

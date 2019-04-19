@@ -44,12 +44,16 @@
 |Victim   |   |   |   |
 |Volunteer   |   |   |   |
 
+***
+
 ### Congregant
 *Extends Summoner*
 **type**: *Sub-character Creator*
 **Actions**
 - dubKnight
 - debaseKnight
+
+***
 
 ### Genie
 *Extends Volunteer*
@@ -59,6 +63,8 @@
 **Process**: *wish*
 
 **Handles**: *hope*
+
+***
 
 ### Guardian
 *Extends Smith*
@@ -79,6 +85,8 @@
 |---|---|---|---|
 |boundary   |   |   |   |
 
+***
+
 ### Martyr
 *Extends Victim*
 
@@ -95,6 +103,8 @@
 |Attributes   |Self Initiative   |Native   |Web   |
 |---|---|---|---|
 |suffering   |   |   |   |
+
+***
 
 ### Paladin
 *Extends Congregant*
@@ -116,6 +126,8 @@
 |loyalty   |   |   |   |
 |honor   |   |   |   |
 
+***
+
 ### Seeker
 *Extends Self*
 
@@ -135,6 +147,8 @@
 |---|---|---|---|
 |vulnerability   |   |   |   |
 |acceptance   |   |   |   |
+
+***
 
 ### Self
 **type**: *Prototype*
@@ -159,6 +173,8 @@
 |fear   |   |   |   |
 |pride   |   |   |   |
 |self-pity   |   |   |   |
+
+***
 
 ### Summoner
 *Extends Self*
@@ -191,6 +207,8 @@
 |---|---|---|---|
 |trauma   |   |   |   |
 |toxicity   |   |   |   |
+
+***
 
 ### Volunteer
 *Extends Self*

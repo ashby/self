@@ -53,7 +53,42 @@
 
 ***
 
-## Locations
+## Sources
+
+|Locations   |Higher Power   |Self Initiative   |Native   |Web   |
+|---|---|---|---|---|
+|brain   |   |   |   |   |
+|campaign   |   |   |   |   |
+|confusion   |   |   |   |   |
+|cross   |   |   |   |   |
+|crown   |   |   |   |   |
+|crusade   |   |   |   |   |
+|delirium   |   |   |   |   |
+|denial   |   |   |   |   |
+|face   |   |   |   |   |
+|gash   |   |   |   |   |
+|gate   |   |   |   |   |
+|gut   |   |   |   |   |
+|heart   |   |   |   |   |
+|infection   |   |   |   |   |
+|love   |   |   |   |   |
+|mind   |   |   |   |   |
+|mouth   |  |   |   |   |
+|nail   |   |   |   |   |
+|nightmare   |   |   |   |   |
+|pledge   |   |   |   |   |
+|sacrifice   |   |   |   |   |
+|sarcasm   |   |   |   |   |
+|scar   |   |   |   |   |
+|service   |   |   |   |   |
+|silence   |   |   |   |   |
+|skin   |   |   |   |   |
+|soul   |   |   |   |   |
+|sternum   |   |   |   |   |
+|support   |   |   |   |   |
+|tower   |  |   |   |   |
+|tremor   |   |   |   |   |
+|wall   |   |   |   |   |
 
 ***
 

@@ -2,45 +2,46 @@
 
 ## Paths
 
-|Attributes   |Higher Power   |Self Initiative   |Native   |Web   |
+|Path   |Higher Power   |Self Initiative   |Native   |Web   |
 |---|---|---|---|---|
 |defect   |✅   |   |   |   |
 |experience   |✅   |   |   |   |
 |hope   | ✅  |   |   |   |
 |obsession   |✅  |   |   |   |
 |resentment   |✅   |   |   |   |
+|serenity   |   |   |   |   |
 |strength   |✅   |   |   |   |
 
 ## Feelings
 
-|Feelings   |Higher Power   |Self Initiative   |Native   |Web   |
-|---|---|---|---|---|
-|acceptance  |✅   |   |   |   |
-|anger   |✅   |   |   |   |
-|armor   |✅   |   |   |   |
-|boundary   |✅   |   |   |   |
-|compassion   |✅   |   |   |   |
-|courage   |✅   |   |   |   |
-|fear   |✅   |   |   |   |
-|gratitude   |✅   |   |   |   |
-|honor   |   |   |   |   |
-|impatience   |   |   |   |   |
-|irritability   |   |   |   |   |
-|loyalty   |   |   |   |   |
-|pride   |✅   |   |   |   |
-|salvation   |✅   |   |   |   |
-|self-pity   |✅   |   |   |   |
-|shame   |   |   |   |   |
-|suffering   |✅   |   |   |   |
-|toxicity   |✅   |   |   |   |
-|trauma   |✅   |   |   |   |
-|vulnerability   |✅   |   |   |   |
+|Feeling   |Path   |Higher Power   |Self Initiative   |Native   |Web   |
+|---|---|---|---|---|---|
+|acceptance  |experience   |✅   |   |   |
+|anger   |resentment, strength   |✅   |   |   |   |
+|armor   |strength   |✅   |   |   |   |
+|boundary   |strength   |✅   |   |   |   |
+|compassion   |experience   |✅   |   |   |   |
+|courage   |strength, experience   |✅   |   |   |   |
+|fear   |resentment   |   |✅   |   |   |
+|gratitude   |experience   |✅   |   |   |   |
+|honor   |strength, obsession   |   |   |   |   |
+|impatience   |   |   |   |   |   |
+|irritability   |   |   |   |   |   |
+|loyalty   |strength, obsession   |   |   |   |   |
+|pride   |resentment   |✅   |   |   |   |
+|salvation   |hope   |✅  |   |   |   |
+|self-pity   |resentment   |✅   |   |   |   |
+|shame   |   |   |   |   |   |
+|suffering   |experience, obsession, defect   |✅   |   |   |   |
+|toxicity   |defect   |✅   |   |   |   |
+|trauma   |defect   |✅   |   |   |   |
+|vulnerability   |experience, obsession   |✅   |   |   |   |
 
 ***
 
 ## Processes
 
-|Processes   |Higher Power   |Self Initiative   |Native   |Web   |
+|Process   |Higher Power   |Self Initiative   |Native   |Web   |
 |---|---|---|---|---|
 |act   |   |   |   |   |
 |affliction   |   |   |   |   |
@@ -56,58 +57,68 @@
 
 ## Sources
 
-|Locations   |Higher Power   |Self Initiative   |Native   |Web   |
-|---|---|---|---|---|
-|brain   |   |   |   |   |
-|campaign   |   |   |   |   |
-|confusion   |   |   |   |   |
-|cross   |   |   |   |   |
-|crown   |   |   |   |   |
-|crusade   |   |   |   |   |
-|delirium   |   |   |   |   |
-|denial   |   |   |   |   |
-|face   |   |   |   |   |
-|gash   |   |   |   |   |
-|gate   |   |   |   |   |
-|gut   |   |   |   |   |
-|heart   |   |   |   |   |
-|infection   |   |   |   |   |
-|love   |   |   |   |   |
-|mind   |   |   |   |   |
-|mouth   |  |   |   |   |
-|nail   |   |   |   |   |
-|nightmare   |   |   |   |   |
-|pledge   |   |   |   |   |
-|sacrifice   |   |   |   |   |
-|sarcasm   |   |   |   |   |
-|scar   |   |   |   |   |
-|service   |   |   |   |   |
-|silence   |   |   |   |   |
-|skin   |   |   |   |   |
-|soul   |   |   |   |   |
-|sternum   |   |   |   |   |
-|support   |   |   |   |   |
-|tower   |  |   |   |   |
-|tremor   |   |   |   |   |
-|wall   |   |   |   |   |
+|Source   |Process  |Higher Power   |Self Initiative   |Native   |Web   |
+|---|---|---|---|---|---|
+|brain   |body   |   |   |   |   |
+|face   |body   |   |   |   |   |
+|gut   |body   |   |   |   |   |
+|heart   |body   |   |   |   |   |
+|mouth   |body  |   |   |   |   |
+|skin   |body   |   |   |   |   |
+|sternum   |body   |   |   |   |   |
+|---|---|---|---|---|---|
+|campaign   |oath   |   |   |   |   |
+|crusade   |oath   |   |   |   |   |
+|pledge   |oath   |   |   |   |   |
+|---|---|---|---|---|---|
+|confusion   |shield   |   |   |   |   |
+|denial   |shield   |   |   |   |   |
+|sarcasm   |shield   |   |   |   |   |
+|silence   |shield   |   |   |   |   |
+|---|---|---|---|---|---|
+|cross   |stigmata   |   |   |   |   |
+|crown   |stigmata   |   |   |   |   |
+|nail   |stigmata  |   |   |   |   |
+|---|---|---|---|---|---|
+|delirium   |affliction   |   |   |   |   |
+|gash   |affliction   |   |   |   |   |
+|infection   |affliction   |   |   |   |   |
+|nightmare   |affliction   |   |   |   |   |
+|scar   |affliction   |   |   |   |   |
+|tremor   |affliction   |   |   |   |   |
+|---|---|---|---|---|---|
+|dream   |wish   |   |   |   |   |
+|---|---|---|---|---|---|
+|gate   |construct   |   |   |   |   |
+|tower   |construct  |   |   |   |   |
+|wall   |construct   |   |   |   |   |
+|---|---|---|---|---|---|
+|love   |virtue   |   |   |   |   |
+|mind   |virtue   |   |   |   |   |
+|soul   |virtue   |   |   |   |   |
+|---|---|---|---|---|---|
+|sacrifice   |act   |   |   |   |   |
+|service   |act   |   |   |   |   |
+|support   |act   |   |   |   |   |
+|---|---|---|---|---|---|
 
 ***
 
 ## Characters
 
-|Character   |Self Initiative   |Native   |Web   |
-|---|---|---|---|
+|Character   |Process   |Self Initiative   |Native   |Web   |
+|---|---|---|---|---|
 |Congregant   |   |   |   |
-|Genie   |   |   |   |
-|Guardian   |   |   |   |
-|Martyr   |   |   |   |
-|Paladin   |   |   |   |
-|Seeker   |   |   |   |
-|Self   |   |   |   |
-|Smith   |   |   |   |
-|Summoner   |   |   |   |
-|Victim   |   |   |   |
-|Volunteer   |   |   |   |
+|Genie   |wish   |   |   |   |
+|Guardian   |construct   |   |   |   |
+|Martyr   |stigmata   |   |   |   |
+|Paladin   |oath   |   |   |   |
+|Seeker   |virtue   |   |   |   |
+|Self   |body   |   |   |   |
+|Smith   |shield   |   |   |   |
+|Summoner   |   |   |   |   |
+|Victim   |affliction   |   |   |   |
+|Volunteer   |act   |   |   |   |
 
 ***
 
@@ -128,6 +139,14 @@
 **Process**: *wish*
 
 **Path**: *hope*
+
+|Sources   |Self Initiative   |Native   |Web   |
+|---|---|---|---|
+|wish   |   |   |   |
+
+|Feelings   |Self Initiative   |Native   |Web   |
+|---|---|---|---|
+|salvation   |   |   |   |
 
 ***
 

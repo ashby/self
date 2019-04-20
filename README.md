@@ -22,7 +22,7 @@
 |boundary   |strength   |✅   |   |   |   |
 |compassion   |experience   |✅   |   |   |   |
 |courage   |strength, experience   |✅   |   |   |   |
-|fear   |resentment   |   |✅   |   |   |
+|fear   |resentment   |✅   |   |   |   |
 |gratitude   |experience   |✅   |   |   |   |
 |honor   |strength, obsession   |   |   |   |   |
 |impatience   |   |   |   |   |   |
@@ -59,7 +59,7 @@
 
 |Source   |Process  |Higher Power   |Self Initiative   |Native   |Web   |
 |---|---|---|---|---|---|
-|Self   |
+|**Self**   |
 |brain   |body   |   |   |   |   |
 |face   |body   |   |   |   |   |
 |gut   |body   |   |   |   |   |
@@ -67,37 +67,37 @@
 |mouth   |body  |   |   |   |   |
 |skin   |body   |   |   |   |   |
 |sternum   |body   |   |   |   |   |
-|Paladin   |
+|**Paladin**   |
 |campaign   |oath   |   |   |   |   |
 |crusade   |oath   |   |   |   |   |
 |pledge   |oath   |   |   |   |   |
-|Smith   |
+|**Smith**   |
 |confusion   |shield   |   |   |   |   |
 |denial   |shield   |   |   |   |   |
 |sarcasm   |shield   |   |   |   |   |
 |silence   |shield   |   |   |   |   |
-|Martyr   |
+|**Martyr**   |
 |cross   |stigmata   |   |   |   |   |
 |crown   |stigmata   |   |   |   |   |
 |nail   |stigmata  |   |   |   |   |
-|Viction   |
+|**Victim**   |
 |delirium   |affliction   |   |   |   |   |
 |gash   |affliction   |   |   |   |   |
 |infection   |affliction   |   |   |   |   |
 |nightmare   |affliction   |   |   |   |   |
 |scar   |affliction   |   |   |   |   |
 |tremor   |affliction   |   |   |   |   |
-|Genie   |
+|**Genie**   |
 |dream   |wish   |   |   |   |   |
-|Guardian   |
+|**Guardian**   |
 |gate   |construct   |   |   |   |   |
 |tower   |construct  |   |   |   |   |
 |wall   |construct   |   |   |   |   |
-|Seeker   |
+|**Seeker**   |
 |love   |virtue   |   |   |   |   |
 |mind   |virtue   |   |   |   |   |
 |soul   |virtue   |   |   |   |   |
-|Volunter   |
+|**Volunter**   |
 |sacrifice   |act   |   |   |   |   |
 |service   |act   |   |   |   |   |
 |support   |act   |   |   |   |   |
@@ -123,8 +123,11 @@
 ***
 
 ### Congregant
+
 *Extends Summoner*
+
 **type**: *Sub-character Creator*
+
 **Actions**
 - dubKnight
 - debaseKnight

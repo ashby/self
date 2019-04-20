@@ -59,6 +59,7 @@
 
 |Source   |Process  |Higher Power   |Self Initiative   |Native   |Web   |
 |---|---|---|---|---|---|
+|Self   |
 |brain   |body   |   |   |   |   |
 |face   |body   |   |   |   |   |
 |gut   |body   |   |   |   |   |
@@ -66,59 +67,58 @@
 |mouth   |body  |   |   |   |   |
 |skin   |body   |   |   |   |   |
 |sternum   |body   |   |   |   |   |
-|---|---|---|---|---|---|
+|Paladin   |
 |campaign   |oath   |   |   |   |   |
 |crusade   |oath   |   |   |   |   |
 |pledge   |oath   |   |   |   |   |
-|---|---|---|---|---|---|
+|Smith   |
 |confusion   |shield   |   |   |   |   |
 |denial   |shield   |   |   |   |   |
 |sarcasm   |shield   |   |   |   |   |
 |silence   |shield   |   |   |   |   |
-|---|---|---|---|---|---|
+|Martyr   |
 |cross   |stigmata   |   |   |   |   |
 |crown   |stigmata   |   |   |   |   |
 |nail   |stigmata  |   |   |   |   |
-|---|---|---|---|---|---|
+|Viction   |
 |delirium   |affliction   |   |   |   |   |
 |gash   |affliction   |   |   |   |   |
 |infection   |affliction   |   |   |   |   |
 |nightmare   |affliction   |   |   |   |   |
 |scar   |affliction   |   |   |   |   |
 |tremor   |affliction   |   |   |   |   |
-|---|---|---|---|---|---|
+|Genie   |
 |dream   |wish   |   |   |   |   |
-|---|---|---|---|---|---|
+|Guardian   |
 |gate   |construct   |   |   |   |   |
 |tower   |construct  |   |   |   |   |
 |wall   |construct   |   |   |   |   |
-|---|---|---|---|---|---|
+|Seeker   |
 |love   |virtue   |   |   |   |   |
 |mind   |virtue   |   |   |   |   |
 |soul   |virtue   |   |   |   |   |
-|---|---|---|---|---|---|
+|Volunter   |
 |sacrifice   |act   |   |   |   |   |
 |service   |act   |   |   |   |   |
 |support   |act   |   |   |   |   |
-|---|---|---|---|---|---|
 
 ***
 
 ## Characters
 
-|Character   |Process   |Self Initiative   |Native   |Web   |
-|---|---|---|---|---|
+|Character   |Process   |Higher Power   |Self Initiative   |Native   |Web   |
+|---|---|---|---|---|---|
 |Congregant   |   |   |   |
-|Genie   |wish   |   |   |   |
-|Guardian   |construct   |   |   |   |
-|Martyr   |stigmata   |   |   |   |
-|Paladin   |oath   |   |   |   |
-|Seeker   |virtue   |   |   |   |
-|Self   |body   |   |   |   |
-|Smith   |shield   |   |   |   |
-|Summoner   |   |   |   |   |
-|Victim   |affliction   |   |   |   |
-|Volunteer   |act   |   |   |   |
+|Genie   |wish   |   |   |   |   |
+|Guardian   |construct   |   |   |   |   |
+|Martyr   |stigmata   |   |   |   |   |
+|Paladin   |oath   |   |   |   |   |
+|Seeker   |virtue   |   |   |   |   |
+|Self   |body   |   |   |   |   |
+|Smith   |shield   |   |   |   |   |
+|Summoner   |   |   |   |   |   |
+|Victim   |affliction   |   |   |   |   |
+|Volunteer   |act   |   |   |   |   |
 
 ***
 

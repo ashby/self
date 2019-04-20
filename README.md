@@ -5,6 +5,7 @@
 |Path   |Higher Power   |Self Initiative   |Native   |Web   |
 |---|---|---|---|---|
 |defect   |✅   |   |   |   |
+|discontent   |✅   |   |   |   |
 |experience   |✅   |   |   |   |
 |hope   | ✅  |   |   |   |
 |obsession   |✅  |   |   |   |
@@ -27,8 +28,8 @@
 |gratitude   |*experience*   |✅   |   |   |   |
 |joy   |*hope*   |✅   |   |   |   |
 |honor   |*strength, obsession*   |   |   |   |   |
-|impatience   |   |   |   |   |   |
-|irritability   |   |   |   |   |   |
+|impatience   |*discontent*   |   |   |   |   |
+|irritability   |*discontent*    |   |   |   |   |
 |loyalty   |*strength, obsession*   |   |   |   |   |
 |pride   |*resentment*   |✅   |   |   |   |
 |salvation   |*hope*   |✅  |   |   |   |

@@ -23,7 +23,9 @@
 |compassion   |*experience*   |✅   |   |   |   |
 |courage   |*strength, experience*   |✅   |   |   |   |
 |fear   |*resentment*   |✅   |   |   |   |
+|fun   |*hope*   |✅   |   |   |   |
 |gratitude   |*experience*   |✅   |   |   |   |
+|joy   |*hope*   |✅   |   |   |   |
 |honor   |*strength, obsession*   |   |   |   |   |
 |impatience   |   |   |   |   |   |
 |irritability   |   |   |   |   |   |

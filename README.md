@@ -113,6 +113,7 @@
 |---|---|---|---|---|---|
 |Congregant   |   |   |   |
 |Genie   |*wish*   |   |   |   |   |
+|Grump   |   |   |   |   |   |
 |Guardian   |*construct*   |   |   |   |   |
 |Martyr   |*stigmata*   |   |   |   |   |
 |Paladin   |*oath*   |   |   |   |   |

@@ -1,6 +1,6 @@
 # Self
 
-## Path
+## Paths
 
 |Attributes   |Higher Power   |Self Initiative   |Native   |Web   |
 |---|---|---|---|---|

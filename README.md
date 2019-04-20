@@ -104,6 +104,7 @@
 |Paladin   |   |   |   |
 |Seeker   |   |   |   |
 |Self   |   |   |   |
+|Smith   |   |   |   |
 |Summoner   |   |   |   |
 |Victim   |   |   |   |
 |Volunteer   |   |   |   |
@@ -237,6 +238,26 @@
 |fear   |   |   |   |
 |pride   |   |   |   |
 |self-pity   |   |   |   |
+
+***
+
+### Smith
+**type**: *Prototype*
+
+**Process**: *shield*
+
+**Handles**: *strength*
+
+|Locations   |Self Initiative   |Native   |Web   |
+|---|---|---|---|
+|silence   |   |   |   |
+|sarcasm   |   |   |   |
+|denial   |   |   |   |
+|confusion   |   |   |   |
+
+|Attributes   |Self Initiative   |Native   |Web   |
+|---|---|---|---|
+|armor   |   |   |   |
 
 ***
 

@@ -120,6 +120,7 @@
 |Guardian   |*construct*   |   |   |   |   |
 |Martyr   |*stigmata*   |   |   |   |   |
 |Paladin   |*oath*   |   |   |   |   |
+|Player   |   |   |   |   |   |
 |Seeker   |*virtue*   |   |   |   |   |
 |Self   |*body*   |   |   |   |   |
 |Smith   |*shield*   |   |   |   |   |

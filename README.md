@@ -1,6 +1,6 @@
 # Self
 
-## Attributes
+## Path
 
 |Attributes   |Higher Power   |Self Initiative   |Native   |Web   |
 |---|---|---|---|---|
@@ -11,9 +11,9 @@
 |resentment   |✅   |   |   |   |
 |strength   |✅   |   |   |   |
 
-## Sub-attributes
+## Feelings
 
-|Sub-attributes   |Higher Power   |Self Initiative   |Native   |Web   |
+|Feelings   |Higher Power   |Self Initiative   |Native   |Web   |
 |---|---|---|---|---|
 |acceptance  |✅   |   |   |   |
 |anger   |✅   |   |   |   |
@@ -127,7 +127,7 @@
 
 **Process**: *wish*
 
-**Handles**: *hope*
+**Path**: *hope*
 
 ***
 
@@ -138,15 +138,15 @@
 
 **Process**: *construct*
 
-**Handles**: *strength*
+**Path**: *strength*
 
-|Locations   |Self Initiative   |Native   |Web   |
+|Sources   |Self Initiative   |Native   |Web   |
 |---|---|---|---|
 |gate   |   |   |   |
 |tower   |   |   |   |
 |wall   |   |   |   |
 
-|Attributes   |Self Initiative   |Native   |Web   |
+|Feelings   |Self Initiative   |Native   |Web   |
 |---|---|---|---|
 |boundary   |   |   |   |
 
@@ -157,15 +157,15 @@
 
 **Process**: *stigmata*
 
-**Handles**: *defect*
+**Path**: *defect*
 
-|Locations   |Self Initiative   |Native   |Web   |
+|Sources   |Self Initiative   |Native   |Web   |
 |---|---|---|---|
 |nail   |   |   |   |
 |crown   |   |   |   |
 |cross   |   |   |   |
 
-|Attributes   |Self Initiative   |Native   |Web   |
+|Feelings   |Self Initiative   |Native   |Web   |
 |---|---|---|---|
 |suffering   |   |   |   |
 
@@ -178,15 +178,15 @@
 
 **Process**: *oath*
 
-**Handles**: *obsession*
+**Path**: *obsession*
 
-|Locations   |Self Initiative   |Native   |Web   |
+|Sources   |Self Initiative   |Native   |Web   |
 |---|---|---|---|
 |pledge   |   |   |   |
 |campaign   |   |   |   |
 |crusade   |   |   |   |
 
-|Attributes   |Self Initiative   |Native   |Web   |
+|Feelings   |Self Initiative   |Native   |Web   |
 |---|---|---|---|
 |loyalty   |   |   |   |
 |honor   |   |   |   |
@@ -200,15 +200,15 @@
 
 **Process**: *virtue*
 
-**Handles**: *experience*
+**Path**: *experience*
 
-|Locations   |Self Initiative   |Native   |Web   |
+|Sources   |Self Initiative   |Native   |Web   |
 |---|---|---|---|
 |soul   |   |   |   |
 |love   |   |   |   |
 |mind   |   |   |   |
 
-|Attributes   |Self Initiative   |Native   |Web   |
+|Feelings   |Self Initiative   |Native   |Web   |
 |---|---|---|---|
 |vulnerability   |   |   |   |
 |acceptance   |   |   |   |
@@ -220,9 +220,9 @@
 
 **Process**: *body*
 
-**Handles**: *resentment*
+**Path**: *resentment*
 
-|Locations   |Self Initiative   |Native   |Web   |
+|Sources   |Self Initiative   |Native   |Web   |
 |---|---|---|---|
 |brain   |   |   |   |
 |face   |   |   |   |
@@ -232,7 +232,7 @@
 |sternum   |   |   |   |
 |gut   |   |   |   |
 
-|Attributes   |Self Initiative   |Native   |Web   |
+|Feelings   |Self Initiative   |Native   |Web   |
 |---|---|---|---|
 |anger   |   |   |   |
 |fear   |   |   |   |
@@ -246,16 +246,16 @@
 
 **Process**: *shield*
 
-**Handles**: *strength*
+**Path**: *strength*
 
-|Locations   |Self Initiative   |Native   |Web   |
+|Sources   |Self Initiative   |Native   |Web   |
 |---|---|---|---|
 |silence   |   |   |   |
 |sarcasm   |   |   |   |
 |denial   |   |   |   |
 |confusion   |   |   |   |
 
-|Attributes   |Self Initiative   |Native   |Web   |
+|Feelings   |Self Initiative   |Native   |Web   |
 |---|---|---|---|
 |armor   |   |   |   |
 
@@ -277,9 +277,9 @@
 
 **Process**: *affliction*
 
-**Handles**: *defect*
+**Path**: *defect*
 
-|Locations   |Self Initiative   |Native   |Web   |
+|Sources   |Self Initiative   |Native   |Web   |
 |---|---|---|---|
 |scar   |   |   |   |
 |gash   |   |   |   |
@@ -288,7 +288,7 @@
 |nightmare   |   |   |   |
 |delirium   |   |   |   |
 
-|Attributes   |Self Initiative   |Native   |Web   |
+|Feelings   |Self Initiative   |Native   |Web   |
 |---|---|---|---|
 |trauma   |   |   |   |
 |toxicity   |   |   |   |
@@ -302,15 +302,15 @@
 
 **Process**: *act*
 
-**Handles**: *experience*
+**Path**: *experience*
 
-|Locations   |Self Initiative   |Native   |Web   |
+|Sources   |Self Initiative   |Native   |Web   |
 |---|---|---|---|
 |service   |   |   |   |
 |sacrifice   |   |   |   |
 |support   |   |   |   |
 
-|Attributes   |Self Initiative   |Native   |Web   |
+|Feelings   |Self Initiative   |Native   |Web   |
 |---|---|---|---|
 |courage   |   |   |   |
 |compassion   |   |   |   |

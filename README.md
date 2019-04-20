@@ -16,26 +16,26 @@
 
 |Feeling   |Path   |Higher Power   |Self Initiative   |Native   |Web   |
 |---|---|---|---|---|---|
-|acceptance  |experience   |✅   |   |   |
-|anger   |resentment, strength   |✅   |   |   |   |
-|armor   |strength   |✅   |   |   |   |
-|boundary   |strength   |✅   |   |   |   |
-|compassion   |experience   |✅   |   |   |   |
-|courage   |strength, experience   |✅   |   |   |   |
-|fear   |resentment   |✅   |   |   |   |
-|gratitude   |experience   |✅   |   |   |   |
-|honor   |strength, obsession   |   |   |   |   |
+|acceptance  |*experience*   |✅   |   |   |
+|anger   |*resentment, strength*   |✅   |   |   |   |
+|armor   |*strength*   |✅   |   |   |   |
+|boundary   |*strength*   |✅   |   |   |   |
+|compassion   |*experience*   |✅   |   |   |   |
+|courage   |*strength, experience*   |✅   |   |   |   |
+|fear   |*resentment*   |✅   |   |   |   |
+|gratitude   |*experience*   |✅   |   |   |   |
+|honor   |*strength, obsession*   |   |   |   |   |
 |impatience   |   |   |   |   |   |
 |irritability   |   |   |   |   |   |
-|loyalty   |strength, obsession   |   |   |   |   |
-|pride   |resentment   |✅   |   |   |   |
-|salvation   |hope   |✅  |   |   |   |
-|self-pity   |resentment   |✅   |   |   |   |
+|loyalty   |*strength, obsession*   |   |   |   |   |
+|pride   |*resentment*   |✅   |   |   |   |
+|salvation   |*hope*   |✅  |   |   |   |
+|self-pity   |*resentment*   |✅   |   |   |   |
 |shame   |   |   |   |   |   |
-|suffering   |experience, obsession, defect   |✅   |   |   |   |
-|toxicity   |defect   |✅   |   |   |   |
-|trauma   |defect   |✅   |   |   |   |
-|vulnerability   |experience, obsession   |✅   |   |   |   |
+|suffering   |*experience, obsession, defect*   |✅   |   |   |   |
+|toxicity   |*defect*   |✅   |   |   |   |
+|trauma   |*defect*   |✅   |   |   |   |
+|vulnerability   |*experience, obsession*   |✅   |   |   |   |
 
 ***
 
@@ -60,47 +60,47 @@
 |Source   |Process  |Higher Power   |Self Initiative   |Native   |Web   |
 |---|---|---|---|---|---|
 |**Self**   |
-|brain   |body   |   |   |   |   |
-|face   |body   |   |   |   |   |
-|gut   |body   |   |   |   |   |
-|heart   |body   |   |   |   |   |
-|mouth   |body  |   |   |   |   |
-|skin   |body   |   |   |   |   |
-|sternum   |body   |   |   |   |   |
+|brain   |*body*   |   |   |   |   |
+|face   |*body*   |   |   |   |   |
+|gut   |*body*   |   |   |   |   |
+|heart   |*body*   |   |   |   |   |
+|mouth   |*body*  |   |   |   |   |
+|skin   |*body*   |   |   |   |   |
+|sternum   |*body*   |   |   |   |   |
 |**Paladin**   |
-|campaign   |oath   |   |   |   |   |
-|crusade   |oath   |   |   |   |   |
-|pledge   |oath   |   |   |   |   |
+|campaign   |*oath*   |   |   |   |   |
+|crusade   |*oath*   |   |   |   |   |
+|pledge   |*oath*   |   |   |   |   |
 |**Smith**   |
-|confusion   |shield   |   |   |   |   |
-|denial   |shield   |   |   |   |   |
-|sarcasm   |shield   |   |   |   |   |
-|silence   |shield   |   |   |   |   |
+|confusion   |*shield*   |   |   |   |   |
+|denial   |*shield*   |   |   |   |   |
+|sarcasm   |*shield*   |   |   |   |   |
+|silence   |*shield*   |   |   |   |   |
 |**Martyr**   |
-|cross   |stigmata   |   |   |   |   |
-|crown   |stigmata   |   |   |   |   |
-|nail   |stigmata  |   |   |   |   |
+|cross   |*stigmata*   |   |   |   |   |
+|crown   |*stigmata*   |   |   |   |   |
+|nail   |*stigmata*  |   |   |   |   |
 |**Victim**   |
-|delirium   |affliction   |   |   |   |   |
-|gash   |affliction   |   |   |   |   |
-|infection   |affliction   |   |   |   |   |
-|nightmare   |affliction   |   |   |   |   |
-|scar   |affliction   |   |   |   |   |
-|tremor   |affliction   |   |   |   |   |
+|delirium   |*affliction*   |   |   |   |   |
+|gash   |*affliction*   |   |   |   |   |
+|infection   |*affliction*   |   |   |   |   |
+|nightmare   |*affliction*   |   |   |   |   |
+|scar   |*affliction*   |   |   |   |   |
+|tremor   |*affliction*   |   |   |   |   |
 |**Genie**   |
-|dream   |wish   |   |   |   |   |
+|dream   |*wish*   |   |   |   |   |
 |**Guardian**   |
-|gate   |construct   |   |   |   |   |
-|tower   |construct  |   |   |   |   |
-|wall   |construct   |   |   |   |   |
+|gate   |*construct*   |   |   |   |   |
+|tower   |*construct*  |   |   |   |   |
+|wall   |*construct*   |   |   |   |   |
 |**Seeker**   |
-|love   |virtue   |   |   |   |   |
-|mind   |virtue   |   |   |   |   |
-|soul   |virtue   |   |   |   |   |
+|love   |*virtue*   |   |   |   |   |
+|mind   |*virtue*   |   |   |   |   |
+|soul   |*virtue*   |   |   |   |   |
 |**Volunter**   |
-|sacrifice   |act   |   |   |   |   |
-|service   |act   |   |   |   |   |
-|support   |act   |   |   |   |   |
+|sacrifice   |*act*   |   |   |   |   |
+|service   |*act*   |   |   |   |   |
+|support   |*act*   |   |   |   |   |
 
 ***
 
@@ -109,16 +109,16 @@
 |Character   |Process   |Higher Power   |Self Initiative   |Native   |Web   |
 |---|---|---|---|---|---|
 |Congregant   |   |   |   |
-|Genie   |wish   |   |   |   |   |
-|Guardian   |construct   |   |   |   |   |
-|Martyr   |stigmata   |   |   |   |   |
-|Paladin   |oath   |   |   |   |   |
-|Seeker   |virtue   |   |   |   |   |
-|Self   |body   |   |   |   |   |
-|Smith   |shield   |   |   |   |   |
+|Genie   |*wish*   |   |   |   |   |
+|Guardian   |*construct*   |   |   |   |   |
+|Martyr   |*stigmata*   |   |   |   |   |
+|Paladin   |*oath*   |   |   |   |   |
+|Seeker   |*virtue*   |   |   |   |   |
+|Self   |*body*   |   |   |   |   |
+|Smith   |*shield*   |   |   |   |   |
 |Summoner   |   |   |   |   |   |
-|Victim   |affliction   |   |   |   |   |
-|Volunteer   |act   |   |   |   |   |
+|Victim   |*affliction*   |   |   |   |   |
+|Volunteer   |*act*   |   |   |   |   |
 
 ***
 

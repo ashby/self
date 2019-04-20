@@ -27,10 +27,10 @@
 |fun   |*hope*   |✅   |   |   |   |
 |gratitude   |*experience*   |✅   |   |   |   |
 |joy   |*hope*   |✅   |   |   |   |
-|honor   |*strength, obsession*   |   |   |   |   |
-|impatience   |*discontent*   |   |   |   |   |
-|irritability   |*discontent*    |   |   |   |   |
-|loyalty   |*strength, obsession*   |   |   |   |   |
+|honor   |*strength, obsession*   |✅    |   |   |   |
+|impatience   |*discontent*   |✅    |   |   |   |
+|irritability   |*discontent*    |✅    |   |   |   |
+|loyalty   |*strength, obsession*   |✅    |   |   |   |
 |pride   |*resentment*   |✅   |   |   |   |
 |salvation   |*hope*   |✅  |   |   |   |
 |self-pity   |*resentment*   |✅   |   |   |   |

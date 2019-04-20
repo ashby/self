@@ -32,6 +32,7 @@
 |irritability   |*discontent*    |✅    |   |   |   |
 |loyalty   |*strength, obsession*   |✅    |   |   |   |
 |pride   |*resentment*   |✅   |   |   |   |
+|sadness   |*hope*   |  |   |   |   |
 |salvation   |*hope*   |✅  |   |   |   |
 |self-pity   |*resentment*   |✅   |   |   |   |
 |shame   |   |   |   |   |   |
@@ -39,6 +40,7 @@
 |toxicity   |*defect*   |✅   |   |   |   |
 |trauma   |*defect*   |✅   |   |   |   |
 |vulnerability   |*experience, obsession*   |✅   |   |   |   |
+|worry   |*discontent*   |✅   |   |   |   |
 
 ***
 
@@ -112,6 +114,7 @@
 |Character   |Process   |Higher Power   |Self Initiative   |Native   |Web   |
 |---|---|---|---|---|---|
 |Congregant   |   |   |   |
+|Drag   |   |   |   |
 |Genie   |*wish*   |   |   |   |   |
 |Grump   |   |   |   |   |   |
 |Guardian   |*construct*   |   |   |   |   |

@@ -23,6 +23,7 @@
 |boundary   |*strength*   |✅   |   |   |   |
 |compassion   |*experience*   |✅   |   |   |   |
 |courage   |*strength, experience*   |✅   |   |   |   |
+|desire   |*hope*   |✅   |   |   |   |
 |fear   |*resentment*   |✅   |   |   |   |
 |fun   |*hope*   |✅   |   |   |   |
 |gratitude   |*experience*   |✅   |   |   |   |

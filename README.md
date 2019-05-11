@@ -13,6 +13,7 @@
 
 ### Version 2.0.0
 
+- Avatar
 - Notifications
 - Character Select
 - Forgot Password / Forgot Username

@@ -9,6 +9,7 @@
 - en_US
 - Simple or Advanced
 - Encryption
+- Privacy Policy
 
 ### Version 2.0.0
 

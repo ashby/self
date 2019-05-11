@@ -1,5 +1,33 @@
 # Self
 
+### Version 1.0.0
+
+- Android/iOS
+- Inventory
+- Cast
+- Authentication
+- en_US
+- Simple or Advanced
+- Encryption
+
+### Version 2.0.0
+
+- Notifications
+- Character Select
+- Forgot Password / Forgot Username
+- Webapp
+- Sharing
+
+### Version 3.0.0
+
+- Self Initiative
+- Subclasses?
+- More languages
+
+### Version 4.0.0
+
+- Global Initiative
+
 ## Paths
 
 |Path   |Higher Power   |Self Initiative   |Native   |Web   |
